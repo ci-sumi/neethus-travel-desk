@@ -122,52 +122,52 @@ main {
   }
   
   .article {
-    background-color: #fff;
-    padding: 15px;
+    background: linear-gradient(135deg, #80a3db, #a8c6ee); /* Gradient background with complementary tones */
+    padding: 20px; /* Increase padding for more space */
     margin-bottom: 22px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
-  }
-  
-  .article img {
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .article .location {
-    cursor: pointer;
+    border-radius: 12px; /* Smooth corners */
+    box-shadow: 0px 4px 15px rgba(128, 163, 219, 0.3); /* Shadow with a slight tint of the background color */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.article:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0px 6px 20px rgba(128, 163, 219, 0.4); /* Enhanced shadow on hover */
+}
+
+.article .location {
     font-style: italic;
     text-align: center;
-    font-size: 9pt;
+    font-size: 12pt; /* Slightly larger font for emphasis */
     margin-top: 15px;
     font-family: "Open Sans", sans-serif;
-  }
-  
-  .article .location b {
+    color: #004b87; /* Darker blue for contrast */
+}
+
+.article .location b {
     text-transform: uppercase;
     font-style: normal;
-    font-size: 12pt;
+    font-size: 14pt;
     font-weight: 600;
-  }
-  
-  .article .desc {
+    color: #003366; /* Even darker blue for bold text */
+}
+
+.article .desc {
     margin-top: 12px;
-    font-size: 10pt;
+    font-size: 11pt; /* Slightly larger font for readability */
     font-family: "Open Sans", sans-serif;
     padding-bottom: 18px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .article .info {
+    border-bottom: 1px solid #b3cce5; /* Light blue border for subtle separation */
+    color: #002f5c; /* Dark blue for text contrast */
+}
+
+.article .info {
     text-align: center;
     font-family: "Open Sans", sans-serif;
     margin-top: -5px;
-    color: #9a9ab3;
-  }
-  
-  .article .info .comment {
-    cursor: pointer;
-    margin-left: 20px;
-  }
+    color: #005a9e; /* Medium blue for the info text */
+}
+
   
   .article .info .comment:hover {
     color: #b5b5e0;
