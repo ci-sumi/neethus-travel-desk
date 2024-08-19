@@ -4,6 +4,7 @@
 
 .navbar .navbar-brand,
 .navbar .nav-link {
+    display: inline;
     color: black !important; /* Change text color to white for better contrast */
 }
 .navbar-brand h1 {
@@ -12,14 +13,27 @@
     color: #800080; /* Purple color */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional shadow for extra effect */
 }
+/* Base styling for nav links */
+.navbar .nav-link {
+    color: white; /* Text color for better contrast */
+    text-decoration: none; /* Remove default underline */
+    position: relative; /* Needed for pseudo-element positioning */
+}
 
-.btn-signup {
-    background-color: #800080; /* Purple background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    padding: 10px 20px; /* Add padding */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 1rem; /* Font size */
-    font-weight: bold; /* Bold text */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+/* Underline effect */
+.navbar .nav-link::after {
+    content: ''; /* No text content */
+    position: absolute; /* Position relative to the link */
+    left: 0; /* Align to the left edge of the link */
+    bottom: -2px; /* Position just below the text */
+    width: 100%; /* Full width of the link */
+    height: 2px; /* Thickness of the underline */
+    background-color: #a64dff; /* Purple color for underline */
+    transform: scaleX(0); /* Initially hidden */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Show underline on hover */
+.navbar .nav-link:hover::after {
+    transform: scaleX(1); /* Show underline */
 }
