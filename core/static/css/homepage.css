@@ -1,3 +1,13 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 .navbar {
     background-color: lightblue !important; /* Dark Blue */
 }
@@ -36,4 +46,10 @@
 /* Show underline on hover */
 .navbar .nav-link:hover::after {
     transform: scaleX(1); /* Show underline */
+}
+footer {
+    margin-top: auto; /* Pushes the footer to the bottom of the page */
+    /* Light background color for the footer */
+    padding: 20px; /* Space inside the footer */
+    text-align: center; /* Center align text inside the footer */
 }
