@@ -116,6 +116,91 @@ section:not(.intro):nth-child(odd){
 	}
 }
 
+
+main {
+    margin-top: 40px;
+  }
+  
+  .article {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 22px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .article img {
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .article .location {
+    cursor: pointer;
+    font-style: italic;
+    text-align: center;
+    font-size: 9pt;
+    margin-top: 15px;
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  .article .location b {
+    text-transform: uppercase;
+    font-style: normal;
+    font-size: 12pt;
+    font-weight: 600;
+  }
+  
+  .article .desc {
+    margin-top: 12px;
+    font-size: 10pt;
+    font-family: "Open Sans", sans-serif;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .article .info {
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    margin-top: -5px;
+    color: #9a9ab3;
+  }
+  
+  .article .info .comment {
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  
+  .article .info .comment:hover {
+    color: #b5b5e0;
+    transition: all 0.5s;
+  }
+  
+  .article .info .date, .article .info .comment {
+    font-size: 8pt;
+  } 
+  
+  .info .fa-calendar,  .info .fa-comment-alt{
+    margin-right: 3px;
+  }
+  
+  .quote {
+    font-size: 14pt;
+    text-align: center;
+    background-color: #484858;
+    color: #fff;
+  }
+  
+  .quote p {
+    margin-bottom: 0;
+    font-style: italic;
+  }
+  
+  .quote span {
+    font-style: normal;
+    font-size: 10pt;
+    color: #999;
+  }
+  
+
 footer {
     margin-top: auto; /* Pushes the footer to the bottom of the page */
     /* Light background color for the footer */
