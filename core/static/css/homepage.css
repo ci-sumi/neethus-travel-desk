@@ -1,0 +1,25 @@
+.navbar {
+    background-color: lightblue !important; /* Dark Blue */
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: black !important; /* Change text color to white for better contrast */
+}
+.navbar-brand h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem; /* Adjust size as needed */
+    color: #800080; /* Purple color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional shadow for extra effect */
+}
+
+.btn-signup {
+    background-color: #800080; /* Purple background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
