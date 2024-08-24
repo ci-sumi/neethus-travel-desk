@@ -199,42 +199,80 @@ main {
     font-size: 10pt;
     color: #999;
   }
-  
+ 
   .services-section {
     padding: 60px 0;
-    background-color: pink;
+    background-color: #f0f4f8; /* Light blue-grey background for elegance */
 }
+
 .service-card {
     text-align: center;
-    border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 20px;
+    padding: 40px 20px;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-left: 5px solid transparent;
 }
+
+.service-card:hover {
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    border-left: 5px solid #6f42c1; /* Highlight with purple border */
+    transform: translateY(-5px);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: #6f42c1; /* Purple color */
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.service-card:hover i {
+    color: #343a40; /* Darker color on hover */
+}
+
 .service-card h4 {
     margin-bottom: 15px;
-    color: #6f42c1; /* Purple color */
+    color: #333;
+    font-size: 1.4rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
+
+.service-card:hover h4 {
+    color: #6f42c1; /* Purple on hover */
+}
+
 .service-card p {
-    color: #343a40; /* Dark color for contrast */
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    padding: 0 10px;
 }
-.service-card i {
-    font-size: 2rem;
-    color: #6f42c1; /* Purple color */
-    margin-bottom: 10px;
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0; /* Subtle line */
+    margin: 40px 0;
 }
-hr{
-  color:purple;
+
+h2 {
+    color: #343a40;
+    font-weight: 700;
+    margin-bottom: 50px;
 }
-h3{
-  margin-left:170px;
+
+div {
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+    /* margin-top: 20px; */
 }
-p{
-  font-style: italic;
-  font-size: small;
-}
-  
 
 footer {
     margin-top: auto; /* Pushes the footer to the bottom of the page */
