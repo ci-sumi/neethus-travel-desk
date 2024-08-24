@@ -9,7 +9,7 @@ body {
 }
 
 .navbar {
-    background-color: lightblue !important; /* Dark Blue */
+    background-color: white !important; /* Dark Blue */
 }
 
 .navbar .navbar-brand,
@@ -97,7 +97,7 @@ section:not(.intro):nth-child(odd){
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	text-align: center;
-	background-color: #9932CC;
+	background-color: blue;
 	opacity: 1;
 
 	padding: 15px
@@ -107,6 +107,7 @@ section:not(.intro):nth-child(odd){
 	animation:slidein 1s 1s forwards;
 	opacity: 0;
 	margin-top: 100px;
+    
 }
 @keyframes slidein{
 	100%{
@@ -116,7 +117,27 @@ section:not(.intro):nth-child(odd){
 	}
 }
 
-
+/* Flashing effect */
+@keyframes flash {
+    0%, 100% {
+      opacity: 1; /* Full visibility */
+    }
+    50% {
+      opacity: 0; /* Invisible */
+    }
+  }
+  
+  /* Scrolling text */
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%); /* Start off-screen to the right */
+    }
+    100% {
+      transform: translateX(-100%); /* End off-screen to the left */
+    }
+  }
+  
+ 
 main {
     margin-top: 40px;
   }
@@ -267,17 +288,25 @@ h2 {
     margin-bottom: 50px;
 }
 
-div {
+ /* div {
     text-align: center;
     font-size: 1rem;
-    color: #666;
-    /* margin-top: 20px; */
-}
+  
+}  */
 
 footer {
     margin-top: auto; /* Pushes the footer to the bottom of the page */
     /* Light background color for the footer */
     padding: 20px; /* Space inside the footer */
     text-align: center; /* Center align text inside the footer */
-    color: #800080;
+    
+}
+/* Flashing effect */
+
+
+.promo-heading p{
+  text-align: center;
+  margin-top: 2rem;
+  animation: flash 1s infinite;
+  font-size: 22px;
 }
