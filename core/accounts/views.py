@@ -5,4 +5,4 @@ def index(request):
     return render(request,'index.html')
 
 def register(request):
-    return render(request,'register.html')
+    return render(request,'register.html',{'show_services':False})
