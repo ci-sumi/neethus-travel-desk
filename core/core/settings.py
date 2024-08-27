@@ -51,6 +51,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+AUTHENTICATION_BACKENDS=[
+    'accounts.backends.EmailOrUserName'
+]
 
 ROOT_URLCONF = 'core.urls'
 
