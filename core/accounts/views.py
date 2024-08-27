@@ -23,4 +23,13 @@ def register(request):
     return render(request,'register.html',{'form':form})
 
 def login(request):
-    return render(request,'login.html',{'show_services':False})
+    if request.method=='POST':
+        username=request.POST.get('username')
+        password=request.POSt.get('password')
+        if username is not None:
+            login(request,username)
+            return redirect('index')
+        else:
+            pass
+    else:
+        return render(request,'login.html',{'show_services':False})
