@@ -3,6 +3,8 @@ from django.contrib.auth import login as auth_login,authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignupForm
 from django.contrib import messages
+from django.contrib.auth.views import LogoutView
+from django.urls import reverse_lazy
 
 # Create your views here.
 def index(request):
@@ -43,5 +45,6 @@ def login(request):
     return render(request, 'login.html', {'show_services': False})
 
 
-def logout(request):
-    pass
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy('login')
+    

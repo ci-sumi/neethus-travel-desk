@@ -36,13 +36,17 @@
                   <a class="nav-link" href="#">{{user.username}}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#logout">Logout</a>
+                  <form action="{% url 'logout'%}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-link nav-link">Logout </button>
+                  </form>
+                  {% comment %} <a class="nav-link" href="#logout">Logout</a> {% endcomment %}
                 {% comment %} <li class="nav-item"><a href="#login" class="nav-link">Login</a></li> {% endcomment %}
                 {% comment %} <li class="nav-item"><a href="#services" class="nav-link">Services</a></li> {% endcomment %}
                 </li>
                 {% else %}
                 <li class="nav-item">
-                <a class="nav-link" href="{%url 'login.html'%}">Login</a>
+                {% comment %} <a class="nav-link" href="#">Login</a> {% endcomment %}
                 <li class="nav-item"><a href="#signup" class="nav-link btn-signup">Signup</a></li>
                 </li>
                 {% endif %}
