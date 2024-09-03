@@ -41,3 +41,7 @@ def login(request):
     
     # Render the login template with additional context if needed
     return render(request, 'login.html', {'show_services': False})
+
+
+def logout(request):
+    pass

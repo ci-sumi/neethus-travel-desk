@@ -31,8 +31,21 @@
         <!-- Navbar links and collapsible content -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="#login" class="nav-link">Login</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="#">{{user.username}}</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#logout">Logout</a>
+                {% comment %} <li class="nav-item"><a href="#login" class="nav-link">Login</a></li> {% endcomment %}
+                {% comment %} <li class="nav-item"><a href="#services" class="nav-link">Services</a></li> {% endcomment %}
+                </li>
+                {% else %}
+                <li class="nav-item">
+                <a class="nav-link" href="{%url 'login.html'%}">Login</a>
                 <li class="nav-item"><a href="#signup" class="nav-link btn-signup">Signup</a></li>
+                </li>
+                {% endif %}
                 {%if show_services%}
                 <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
                 {% endif %}
