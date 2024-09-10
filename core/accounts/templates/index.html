@@ -23,7 +23,7 @@
      <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand"><h1><span style="color: purple">Neethu's</span> Travel Desk</h1></a>
-        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
           <!-- Toggle button for collapsing navbar on smaller screens -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -57,6 +57,12 @@
         </div>
     </nav>
     {% block content %}
+    {%for message in messages%}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success!</strong> Your message has been sent successfully.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
         <section class="intro">
           <div class="bg-img" style="background-image: url(https://wallpapersite.com/images/pages/pic_w/4792.jpg);"></div>
             <div class="intro-area">
