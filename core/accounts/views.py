@@ -5,6 +5,7 @@ from .forms import SignupForm
 from django.contrib import messages
 from django.contrib.auth.views import LogoutView
 from django.urls import reverse_lazy
+from .forms import ContactForm
 
 # Create your views here.
 def index(request):
@@ -50,5 +51,13 @@ class CustomLogoutView(LogoutView):
     
     
 def contact(request):
-    return render(request,'contact.html')
+    if request.method=="POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            
+        
+    else:
+        form=ContactForm()
+    return render(request,'contact.html',{'form':form})
     
