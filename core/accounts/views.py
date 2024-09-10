@@ -48,3 +48,7 @@ def login(request):
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('login')
     
+    
+def contact(request):
+    return render(request,'contact.html')
+    
