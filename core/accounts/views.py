@@ -55,9 +55,12 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('index')
+            messages.success(request,"Your form is submitted")
             
         
     else:
         form=ContactForm()
+        messages.error(request,"Please fill the fiels properly")
     return render(request,'contact.html',{'form':form})
     
