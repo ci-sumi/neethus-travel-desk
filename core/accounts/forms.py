@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import Contact
 
 class SignupForm(UserCreationForm):
     username=forms.CharField(max_length=100)
@@ -37,3 +38,8 @@ class SignupForm(UserCreationForm):
         return password2
         
     
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model=Contact
+        fields="__all__"
