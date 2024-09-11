@@ -9,5 +9,7 @@ urlpatterns = [
     path('register',views.register,name='register'),
     path('login',views.login,name='login'),
     path('logout',CustomLogoutView.as_view(),name='logout'),
-    path('contact',views.contact,name='contact')
+    path('contact',views.contact,name='contact'),
+    path('destinations',views.destination_list,name='destination_list'),
+    path('destinations/new',views.destination_create,name='destination_create')
 ] 
