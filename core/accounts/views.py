@@ -6,6 +6,8 @@ from django.contrib import messages
 from django.contrib.auth.views import LogoutView
 from django.urls import reverse_lazy
 from .forms import ContactForm
+from .forms import DestinationForm
+from .models import Destination
 
 # Create your views here.
 def index(request):
@@ -64,3 +66,6 @@ def contact(request):
         messages.error(request,"Please fill the fiels properly")
     return render(request,'contact.html',{'form':form})
     
+def destination_list(request):
+    destinations = Destination.objects.all()
+    return render(request,'destination_list.html',{'destinations':'destinations'})
