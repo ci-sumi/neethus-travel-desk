@@ -69,3 +69,14 @@ def contact(request):
 def destination_list(request):
     destinations = Destination.objects.all()
     return render(request,'destination_list.html',{'destinations':'destinations'})
+
+
+def destination_create(request):
+    if request.method=='POST':
+        form = DestinationForm(request.post,request.Files)
+        if form.is_valid():
+            form.save()
+            return redirect('destination_list')
+    else:
+        form = DestinationForm()
+    return render(request,'destination_form.html',{'form':'form'})
