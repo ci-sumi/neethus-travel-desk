@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3 class="text-center">Destinations</h3>
+    <div class="row">
+        <!-- Loop through destinations and display them as cards -->
+        {% for destination in destinations %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <!-- Destination Image (Optional) -->
+                {% if destination.image %}
+                <img src="{{ destination.image.url }}" class="card-img-top" alt="{{ destination.name }}" style="max-height: 200px; object-fit: cover;">
+                {% endif %}
+
+                <div class="card-body">
+                    <!-- Destination Name -->
+                    <h5 class="card-title">{{ destination.name }}</h5>
+
+                    <!-- Destination Country -->
+                    <p class="card-text">
+                        <strong>Country:</strong> {{ destination.country }}
+                    </p>
+
+                    <!-- Best Time to Visit -->
+                    <p class="card-text">
+                        <strong>Best Time to Visit:</strong> {{ destination.get_best_time_to_visit_display }}
+                    </p>
+
+                    <!-- Budget Type -->
+                    <p class="card-text">
+                        <strong>Budget:</strong> {{ destination.get_budget_type_display }}
+                    </p>
+                </div>
+
+                <!-- View Details Button -->
+                <div class="card-footer text-center">
+                    <a href="{% url 'destination_detail' destination.id %}" class="btn btn-outline-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No destinations available at the moment.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
