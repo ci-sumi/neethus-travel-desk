@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 from .forms import ContactForm
 from .forms import DestinationForm
 from .models import Destination
+from django.core.paginator import Paginator
 
 # Create your views here.
 def index(request):
@@ -67,9 +68,11 @@ def contact(request):
     return render(request,'contact.html',{'form':form})
     
 def destination_list(request):
-    destinations = Destination.objects.all()
-    print(destinations) 
-    return render(request,'destination_list.html',{'destinations':destinations})
+    destinations_list = Destination.objects.all()
+    paginator = Paginator(destinations_list, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request,'destination_list.html',{'page_obj':page_obj})
 
 
 def destination_create(request):
