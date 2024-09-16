@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from .models import Contact
 from .models import Destination
 
+
 class SignupForm(UserCreationForm):
     username=forms.CharField(max_length=100)
     email=forms.EmailField(required=True)
@@ -58,7 +59,7 @@ class ContactForm(forms.ModelForm):
    
 class DestinationForm(forms.ModelForm):
     class Meta:
-        Model= Destination
+        model= Destination
         fields ='__all__'
         widgets ={'name':forms.TextInput(attrs={'class':'form-control'}),
                 'country':forms.TextInput(attrs={'class':'form-control'}),
