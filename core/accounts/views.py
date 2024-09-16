@@ -68,7 +68,8 @@ def contact(request):
     
 def destination_list(request):
     destinations = Destination.objects.all()
-    return render(request,'destination_list.html',{'destinations':'destinations'})
+    print(destinations) 
+    return render(request,'destination_list.html',{'destinations':destinations})
 
 
 def destination_create(request):
@@ -80,3 +81,7 @@ def destination_create(request):
     else:
         form = DestinationForm()
     return render(request,'destination_form.html',{'form':'form'})
+
+
+def destination_detail(request):
+    return render(request,'destination_detail.html')
