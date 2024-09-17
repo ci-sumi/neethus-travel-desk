@@ -1,310 +1,368 @@
-html, body {
-    height: 100%;
-    margin: 0;
+html,
+body {
+  height: 100%;
+  margin: 0;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+.navbar{
+  background-color: white!important;
+  padding: 0px !important;
+}
+.navbar-brand,.nav-link {
+  display: inline;
+  color: black !important;
+  /* Change text color to white for better contrast */
 }
 
-.navbar {
-    background-color:white !important; /* Dark Blue */
-}
-
-.navbar .navbar-brand,
-.navbar .nav-link {
-    display: inline;
-    color: black !important; /* Change text color to white for better contrast */
-}
 .navbar-brand h1 {
-    font-family: 'Lobster', cursive;
-    font-size: 2.5rem; /* Adjust size as needed */
-    color: #800080; /* Purple color */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional shadow for extra effect */
+  font-family: 'Lobster', cursive;
+  font-size: 2.5rem;
+  /* Adjust size as needed */
+  color: #800080;
+  /* Purple color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* Optional shadow for extra effect */
 }
+
 /* Base styling for nav links */
-.navbar .nav-link {
-    color: white; /* Text color for better contrast */
-    text-decoration: none; /* Remove default underline */
-    position: relative; /* Needed for pseudo-element positioning */
+ .nav-link {
+  color: white;
+  /* Text color for better contrast */
+  text-decoration: none;
+  /* Remove default underline */
+  position: relative;
+  /* Needed for pseudo-element positioning */
 }
 
 /* Underline effect */
-.navbar .nav-link::after {
-    content: ''; /* No text content */
-    position: absolute; /* Position relative to the link */
-    left: 0; /* Align to the left edge of the link */
-    bottom: -2px; /* Position just below the text */
-    width: 100%; /* Full width of the link */
-    height: 2px; /* Thickness of the underline */
-    background-color: #a64dff; /* Purple color for underline */
-    transform: scaleX(0); /* Initially hidden */
-    transition: transform 0.3s ease; /* Smooth transition */
+.nav-link::after {
+  content: '';
+  /* No text content */
+  position: absolute;
+  /* Position relative to the link */
+  left: 0;
+  /* Align to the left edge of the link */
+  bottom: -2px;
+  /* Position just below the text */
+  width: 100%;
+  /* Full width of the link */
+  height: 2px;
+  /* Thickness of the underline */
+  background-color: #a64dff;
+  /* Purple color for underline */
+  transform: scaleX(0);
+  /* Initially hidden */
+  transition: transform 0.3s ease;
+  /* Smooth transition */
 }
 
 /* Show underline on hover */
-.navbar .nav-link:hover::after {
-    transform: scaleX(1); /* Show underline */
-}
-.intro{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 100px 80px;
-	color: #fff;
+.nav-link:hover::after {
+  transform: scaleX(1);
+  /* Show underline */
 }
 
-section:not(.intro):nth-child(odd){
-	background-color: #f5f5f5;
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 80px;
+  color: #fff;
 }
-.intro{
-	
-	position: relative;
- 	justify-content: center;
-	text-align: center;
-	min-height: 100vh;
 
-	
-
+section:not(.intro):nth-child(odd) {
+  background-color: #f5f5f5;
 }
-.intro .bg-img{
-	position: absolute;
-	top:0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-	opacity: 0.95;
-	background-color: #80a3db;
-	z-index: -1;
+
+.intro {
+
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+
+
 
 }
 
-	
-.intro h1{
-	font:60px 'Luckiest Guy', cursive;
+.intro .bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  opacity: 0.95;
+  background-color: #80a3db;
+  z-index: -1;
 
 }
-.intro h3{
-	font:30px 'Do Hyeon', sans-serif;
-	margin-bottom: 20px;
-	color:#fff;
-}
-.btn{
-	font-family: 'Do Hyeon', sans-serif;
-	border-radius: 4px;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	text-align: center;
-	background-color: blue;
-	opacity: 1;
 
-	padding: 15px
+
+.intro h1 {
+  font: 60px 'Luckiest Guy', cursive;
+
 }
 
-.intro-area{
-	animation:slidein 1s 1s forwards;
-	opacity: 0;
-	margin-top: 100px;
-    
+.intro h3 {
+  font: 30px 'Do Hyeon', sans-serif;
+  margin-bottom: 20px;
+  color: #fff;
 }
-@keyframes slidein{
-	100%{
-		opacity: 1;
-		margin-top: 0;
 
-	}
+.btn {
+  font-family: 'Do Hyeon', sans-serif;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  background-color: blue;
+  opacity: 1;
+
+  padding: 15px
+}
+
+.intro-area {
+  animation: slidein 1s 1s forwards;
+  opacity: 0;
+  margin-top: 100px;
+
+}
+
+@keyframes slidein {
+  100% {
+    opacity: 1;
+    margin-top: 0;
+
+  }
 }
 
 /* Flashing effect */
 @keyframes flash {
-    0%, 100% {
-      opacity: 1; /* Full visibility */
-    }
-    50% {
-      opacity: 0; /* Invisible */
-    }
+
+  0%,
+  100% {
+    opacity: 1;
+    /* Full visibility */
   }
-  
-  /* Scrolling text */
-  @keyframes scroll {
-    0% {
-      transform: translateX(100%); /* Start off-screen to the right */
-    }
-    100% {
-      transform: translateX(-100%); /* End off-screen to the left */
-    }
+
+  50% {
+    opacity: 0;
+    /* Invisible */
   }
-  
- 
+}
+
+/* Scrolling text */
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+    /* Start off-screen to the right */
+  }
+
+  100% {
+    transform: translateX(-100%);
+    /* End off-screen to the left */
+  }
+}
+
+
 main {
-    margin-top: 40px;
-  }
-  
-  .article {
-    background: linear-gradient(135deg, #80a3db, #a8c6ee); /* Gradient background with complementary tones */
-    padding: 20px; /* Increase padding for more space */
-    margin-bottom: 22px;
-    border-radius: 12px; /* Smooth corners */
-    box-shadow: 0px 4px 15px rgba(128, 163, 219, 0.3); /* Shadow with a slight tint of the background color */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+  margin-top: 40px;
+}
+
+.article {
+  background: linear-gradient(135deg, #80a3db, #a8c6ee);
+  /* Gradient background with complementary tones */
+  padding: 20px;
+  /* Increase padding for more space */
+  margin-bottom: 22px;
+  border-radius: 12px;
+  /* Smooth corners */
+  box-shadow: 0px 4px 15px rgba(128, 163, 219, 0.3);
+  /* Shadow with a slight tint of the background color */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Smooth hover effects */
 }
 
 .article:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0px 6px 20px rgba(128, 163, 219, 0.4); /* Enhanced shadow on hover */
+  transform: translateY(-5px);
+  /* Slight lift on hover */
+  box-shadow: 0px 6px 20px rgba(128, 163, 219, 0.4);
+  /* Enhanced shadow on hover */
 }
 
 .article .location {
-    font-style: italic;
-    text-align: center;
-    font-size: 12pt; /* Slightly larger font for emphasis */
-    margin-top: 15px;
-    font-family: "Open Sans", sans-serif;
-    color: #004b87; /* Darker blue for contrast */
+  font-style: italic;
+  text-align: center;
+  font-size: 12pt;
+  /* Slightly larger font for emphasis */
+  margin-top: 15px;
+  font-family: "Open Sans", sans-serif;
+  color: #004b87;
+  /* Darker blue for contrast */
 }
 
 .article .location b {
-    text-transform: uppercase;
-    font-style: normal;
-    font-size: 14pt;
-    font-weight: 600;
-    color: #003366; /* Even darker blue for bold text */
+  text-transform: uppercase;
+  font-style: normal;
+  font-size: 14pt;
+  font-weight: 600;
+  color: #003366;
+  /* Even darker blue for bold text */
 }
 
 .article .desc {
-    margin-top: 12px;
-    font-size: 11pt; /* Slightly larger font for readability */
-    font-family: "Open Sans", sans-serif;
-    padding-bottom: 18px;
-    border-bottom: 1px solid #b3cce5; /* Light blue border for subtle separation */
-    color: #002f5c; /* Dark blue for text contrast */
+  margin-top: 12px;
+  font-size: 11pt;
+  /* Slightly larger font for readability */
+  font-family: "Open Sans", sans-serif;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #b3cce5;
+  /* Light blue border for subtle separation */
+  color: #002f5c;
+  /* Dark blue for text contrast */
 }
 
 .article .info {
-    text-align: center;
-    font-family: "Open Sans", sans-serif;
-    margin-top: -5px;
-    color: #005a9e; /* Medium blue for the info text */
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  margin-top: -5px;
+  color: #005a9e;
+  /* Medium blue for the info text */
 }
 
-  
-  .article .info .comment:hover {
-    color: #b5b5e0;
-    transition: all 0.5s;
-  }
-  
-  .article .info .date, .article .info .comment {
-    font-size: 8pt;
-  } 
-  
-  .info .fa-calendar,  .info .fa-comment-alt{
-    margin-right: 3px;
-  }
-  
-  .quote {
-    font-size: 14pt;
-    text-align: center;
-    background-color: #484858;
-    color: #fff;
-  }
-  
-  .quote p {
-    margin-bottom: 0;
-    font-style: italic;
-  }
-  
-  .quote span {
-    font-style: normal;
-    font-size: 10pt;
-    color: #999;
-  }
- 
-  .services-section {
-    padding: 60px 0;
-    background-color: #f0f4f8; /* Light blue-grey background for elegance */
+
+.article .info .comment:hover {
+  color: #b5b5e0;
+  transition: all 0.5s;
+}
+
+.article .info .date,
+.article .info .comment {
+  font-size: 8pt;
+}
+
+.info .fa-calendar,
+.info .fa-comment-alt {
+  margin-right: 3px;
+}
+
+.quote {
+  font-size: 14pt;
+  text-align: center;
+  background-color: #484858;
+  color: #fff;
+}
+
+.quote p {
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.quote span {
+  font-style: normal;
+  font-size: 10pt;
+  color: #999;
+}
+
+.services-section {
+  padding: 60px 0;
+  background-color: #f0f4f8;
+  /* Light blue-grey background for elegance */
 }
 
 .service-card {
-    text-align: center;
-    border-radius: 10px;
-    padding: 40px 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    border-left: 5px solid transparent;
+  text-align: center;
+  border-radius: 10px;
+  padding: 40px 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-left: 5px solid transparent;
 }
 
 .service-card:hover {
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-    border-left: 5px solid #6f42c1; /* Highlight with purple border */
-    transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  border-left: 5px solid #6f42c1;
+  /* Highlight with purple border */
+  transform: translateY(-5px);
 }
 
 .service-card i {
-    font-size: 2.5rem;
-    color: #6f42c1; /* Purple color */
-    margin-bottom: 20px;
-    transition: color 0.3s ease;
+  font-size: 2.5rem;
+  color: #6f42c1;
+  /* Purple color */
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
 }
 
 .service-card:hover i {
-    color: #343a40; /* Darker color on hover */
+  color: #343a40;
+  /* Darker color on hover */
 }
 
 .service-card h4 {
-    margin-bottom: 15px;
-    color: #333;
-    font-size: 1.4rem;
-    font-weight: 600;
-    transition: color 0.3s ease;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.4rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .service-card:hover h4 {
-    color: #6f42c1; /* Purple on hover */
+  color: #6f42c1;
+  /* Purple on hover */
 }
 
 .service-card p {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 0;
-    padding: 0 10px;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+  padding: 0 10px;
 }
 
 hr {
-    border: 0;
-    height: 1px;
-    background: #e0e0e0; /* Subtle line */
-    margin: 40px 0;
+  border: 0;
+  height: 1px;
+  background: #e0e0e0;
+  /* Subtle line */
+  margin: 40px 0;
 }
 
 h2 {
-    color: #343a40;
-    font-weight: 700;
-    margin-bottom: 50px;
+  color: #343a40;
+  font-weight: 700;
+  margin-bottom: 50px;
 }
 
- /* div {
+/* div {
     text-align: center;
     font-size: 1rem;
   
 }  */
 
 footer {
-    margin-top: auto; /* Pushes the footer to the bottom of the page */
-    /* Light background color for the footer */
-    padding: 20px; /* Space inside the footer */
-    text-align: center; /* Center align text inside the footer */
-    
+  margin-top: auto;
+  /* Pushes the footer to the bottom of the page */
+  /* Light background color for the footer */
+  padding: 20px;
+  /* Space inside the footer */
+  text-align: center;
+  /* Center align text inside the footer */
+
 }
+
 /* Flashing effect */
 
 
-.promo-heading p{
+.promo-heading p {
   text-align: center;
   margin-top: 2rem;
   animation: flash 1s infinite;
