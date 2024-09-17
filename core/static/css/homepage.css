@@ -9,13 +9,16 @@ body {
   flex-direction: column;
 }
 .navbar{
-  background-color: white!important;
+  background-color:white!important;
   padding: 0px !important;
+  box-shadow: 0 4px 8px black;
 }
 .navbar-brand,.nav-link {
   display: inline;
   color: black !important;
   /* Change text color to white for better contrast */
+  font-family: 'Raleway', sans-serif; /* Change to your chosen font */
+  font-size: 1.2rem; /* Adjust as needed for size */
 }
 
 .navbar-brand h1 {
