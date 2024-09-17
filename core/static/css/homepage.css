@@ -100,7 +100,7 @@ section:not(.intro):nth-child(odd) {
   height: 100%;
   background-size: cover;
   opacity: 0.95;
-  background-color: #80a3db;
+  background-color: #800080;
   z-index: -1;
 
 }
@@ -123,7 +123,7 @@ section:not(.intro):nth-child(odd) {
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
-  background-color: blue;
+  background-color: white;
   opacity: 1;
 
   padding: 15px
@@ -174,11 +174,12 @@ section:not(.intro):nth-child(odd) {
 
 
 main {
-  margin-top: 40px;
+  margin-top: 7px;
+  box-shadow: 0 4px 8px black;
 }
 
 .article {
-  background: linear-gradient(135deg, #80a3db, #a8c6ee);
+  background: linear-gradient(135deg, #800080, #a8c6ee);
   /* Gradient background with complementary tones */
   padding: 20px;
   /* Increase padding for more space */
@@ -205,7 +206,7 @@ main {
   /* Slightly larger font for emphasis */
   margin-top: 15px;
   font-family: "Open Sans", sans-serif;
-  color: #004b87;
+  color: white;
   /* Darker blue for contrast */
 }
 
@@ -257,13 +258,14 @@ main {
 .quote {
   font-size: 14pt;
   text-align: center;
-  background-color: #484858;
+  background-color: white;
   color: #fff;
 }
 
 .quote p {
   margin-bottom: 0;
   font-style: italic;
+  color: white;
 }
 
 .quote span {
@@ -274,7 +276,8 @@ main {
 
 .services-section {
   padding: 60px 0;
-  background-color: #f0f4f8;
+  background: linear-gradient(135deg, #800080, #a8c6ee);
+  box-shadow: 0 4px 8px black;
   /* Light blue-grey background for elegance */
 }
 
