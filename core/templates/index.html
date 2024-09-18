@@ -3,215 +3,244 @@
 <html lang="en">
 
 <head>
-     <!-- Meta tags for character set and responsive design -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Page title -->
-    <title>Navbar</title>
-     <!-- Bootstrap CSS for styling and responsive layout -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-     <!-- Custom CSS file for additional styling -->    
-    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
-     <!-- Google Fonts: Lobster for a more attractive font -->
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Meta tags for character set and responsive design -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Page title -->
+  <title>Navbar</title>
+  <!-- Bootstrap CSS for styling and responsive layout -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Custom CSS file for additional styling -->
+  <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+  <!-- Google Fonts: Lobster for a more attractive font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 
 <body>
-     <!-- Navigation bar -->
-     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="{% url 'index' %}">
-          <h1><span style="color: purple"><i class="fa-solid fa-plane fa-xs"></i></span> Neethu's Travel Desk</h1>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <h1><span style="color: purple"><i class="fa-solid fa-plane fa-xs"></i></span> Neethu's Travel Desk</h1>
+    </a>
+    {% if user.is_authenticated %}
+    <!-- Find Destinations Link -->
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="fa-solid fa-search-location fa-xs"></i> Destinations
       </a>
+    </li>
+    {% endif %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'contact'%}">
+        <i class="fa-solid fa-envelope fa-xs"></i> Contact Us</a>
+    </li>
+    <!-- Toggle button for collapsing navbar on smaller screens -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navbar links and collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto d-flex align-items-center">
+        {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'contact'%}">
-            <i class="fa-solid fa-envelope fa-xs"></i> Contact Us</a>
+          <a class="nav-link" href="{% url 'destination_list' %}">
+            <i class="fa-solid fa-plus-circle fa-xs"></i> Destinations
+          </a>
         </li>
-          <!-- Toggle button for collapsing navbar on smaller screens -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- Navbar links and collapsible content -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                  <a class="nav-link" href="#">{{user.username}}</a>
-                </li>
-                <li class="nav-item">
-                  <form action="{% url 'logout'%}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-link nav-link">
-                      <i class="fa-solid fa-sign-out-alt fa-xs"></i>Logout </button>
-                  </form>
-                  {% comment %} <a class="nav-link" href="#logout">Logout</a> {% endcomment %}
-                {% comment %} <li class="nav-item"><a href="#login" class="nav-link">Login</a></li> {% endcomment %}
-                {% comment %} <li class="nav-item"><a href="#services" class="nav-link">Services</a></li> {% endcomment %}
-                </li>
-                {% else %}
-                <li class="nav-item">
-                {% comment %} <a class="nav-link" href="#">Login</a> {% endcomment %}
-                <li class="nav-item"><a href="{%url 'login' %}" class="nav-link btn-signup">
-                  <i class="fa-solid fa-user-circle fa-xs"></i> Login</a></li>
-                </li>
-                <li class="nav-item"><a href="{%url 'register' %}" class="nav-link btn-signup">
-                  <i class="fa-solid fa-user-plus fa-xs"></i> Signup</a></li>
-                </li>
-                {% endif %}
-                {%if show_services%}
-                <li class="nav-item"><a href="#services" class="nav-link">
-                  <i class="fa-solid fa-briefcase fa-xs"></i> Services</a></li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
-    {% block content %}
-    {%for message in messages%}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <strong>Success!</strong> Your message has been sent successfully.
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <!-- My Destinations Link -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-map-marker-alt fa-xs"></i> My Destinations
+          </a>
+        </li>
+        <!-- Favorite Destinations Link -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-heart fa-xs"></i> Destinations
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">{{user.username}}</a>
+        </li>
+        <li class="nav-item">
+          <form action="{% url 'logout'%}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-link nav-link">
+              <i class="fa-solid fa-sign-out-alt fa-xs"></i>Logout </button>
+          </form>
+          {% comment %} <a class="nav-link" href="#logout">Logout</a> {% endcomment %}
+          {% comment %}
+        <li class="nav-item"><a href="#login" class="nav-link">Login</a></li> {% endcomment %}
+        {% comment %} <li class="nav-item"><a href="#services" class="nav-link">Services</a></li> {% endcomment %}
+        </li>
+        {% else %}
+        <li class="nav-item">
+          {% comment %} <a class="nav-link" href="#">Login</a> {% endcomment %}
+        <li class="nav-item"><a href="{%url 'login' %}" class="nav-link btn-signup">
+            <i class="fa-solid fa-user-circle fa-xs"></i> Login</a></li>
+        </li>
+        <li class="nav-item"><a href="{%url 'register' %}" class="nav-link btn-signup">
+            <i class="fa-solid fa-user-plus fa-xs"></i> Signup</a></li>
+        {% endif %}
+        {%if show_services%}
+        <li class="nav-item"><a href="#services" class="nav-link">
+            <i class="fa-solid fa-briefcase fa-xs"></i> Services</a></li>
+        {% endif %}
+      </ul>
     </div>
-    {% endfor %}
-        <section class="intro">
-          <div class="bg-img" style="background-image: url(https://wallpapersite.com/images/pages/pic_w/4792.jpg);"></div>
-            <div class="intro-area">
-            <h1>Neethu's Travel Desk</h1>
-            <h3>Share your dream destination with us</h3>
-            <a href="#" class="btn">Your Destinations</a>
+  </nav>
+  {% block content %}
+  {%for message in messages%}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!</strong> Your message has been sent successfully.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  <section class="intro">
+    <div class="bg-img" style="background-image: url(https://wallpapersite.com/images/pages/pic_w/4792.jpg);"></div>
+    <div class="intro-area">
+      <h1>Neethu's Travel Desk</h1>
+      <h3>Share your dream destination with us</h3>
+      <a href="{% url 'login' %}" class="btn">Your Destinations</a>
+    </div>
+  </section>
+  <main>
+    <div class="row content">
+      <div class="col-md-4">
+        <div class="article">
+          <img
+            src="https://myhoneymoon.fr/wp-content/uploads/2021/05/1-maldives-voyage-de-noces-avion-plage-hotel-Vue-de-haut.jpg"
+            class="img-fluid">
+          <h2 class="location"><b>Maldives</b> <br />The hidden gems of the islands</h2>
+          <p class="desc">Sed at convallis velit. Suspendisse potenti. Maecenas in orci elementum, dictum nisi quis.</p>
+          <div class="info">
+            <span class="date"><i class="far fa-tag"></i> $300</span>
+            <span class="comment"><i class="far fa-comment-alt"></i> 1 comment</span>
+          </div>
         </div>
-        </section>
-  <div class="promo-heading my-0">
-   <p>Get a Chance to Visit Your Dream Destination and Feature It on Our Website!<p>
-   </div>
-        <main>
-            <div class="row content">
-              <div class="col-md-4">
-                <div class="article">
-                  <img src="https://myhoneymoon.fr/wp-content/uploads/2021/05/1-maldives-voyage-de-noces-avion-plage-hotel-Vue-de-haut.jpg" class="img-fluid">
-                  <h2 class="location"><b>Maldives</b> <br/>The hidden gems of the islands</h2>
-                  <p class="desc">Sed at convallis velit. Suspendisse potenti. Maecenas in orci elementum, dictum nisi quis.</p>
-                  <div class="info">
-                    <span class="date"><i class="far fa-tag"></i> $300</span>
-                    <span class="comment"><i class="far fa-comment-alt"></i> 1 comment</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="article quote-box">
-                  <p>“The most beautiful in the world is, of course, the world itself.” <br/> <span>- Wallace Stevens -</span></p>
-                </div>
-                <div class="article">
-                  <img src="https://s1.travix.com/no/north-america-canada-lake-moraine-medium.jpg" class="img-fluid">
-                  <h2 class="location"><b>Canada</b> <br/> Road trip destinations</h2>
-                  <p class="desc">Nunc mollis risus quis dui sodales viverra. Cras in iaculis metus. Fusce non dictum tortor, nec fermentum orci. Fusce eu varius dui, eget varius urna. Quisque eleifend ut ante vel pharetra.</p>
-                  <div class="info">
-                    <span class="date"><i class="far fa-tag"></i> $499</span>
-                    <span class="comment"><i class="far fa-comment-alt"></i> 4 comments</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="article">
-                  <img src="https://static.euronews.com/articles/stories/06/48/22/92/1440x810_cmsv2_31f9c339-7751-57b2-b3f1-da2551bffb47-6482292.jpg" class="img-fluid">
-                  <h2 class="location"><b>Greece</b> <br/> Travel tales and tips</h2>
-                  <p class="desc">Aliquam tempor, odio eget vehicula tempor, risus elit dignissim felis, ornare pretium augue elit nec arcu. Etiam a lacus leo. Sed lobortis nisl bibendum tellus malesuada laoreet. Nulla eu interdum sem, vitae efficitur dolor.</p>
-                  <div class="info">
-                    <span class="date"><i class="far fa-tag"></i>$600</span>
-                    <span class="comment"><i class="far fa-comment-alt"></i> 2 comments</span>
-                  </div>
-                </div>
-                <div class="article quote-box">
-                  <p>“Travel is never a matter of money but of courage.”<br/> <span>- Paolo Coelho -</span></p>
-                </div>
-              </div>
-            </div>
-          </main>
-          <hr>
-          <div class="services-section" id="services">
-            <div class="container">
-                <h2 class="text-center mb-4">What We Do</h2>
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="service-card">
-                            <i class="fas fa-globe-americas"></i>
-                            <h4>Global Travel Planning</h4>
-                            <p>We help you plan your perfect journey, from exotic destinations to local getaways. Our expertise ensures a seamless travel experience.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="service-card">
-                            <i class="fas fa-plane"></i>
-                            <h4>Flight Booking</h4>
-                            <p>Find the best flight options with our comprehensive booking service. We offer competitive prices and flexible options to fit your needs.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="service-card">
-                            <i class="fas fa-hotel"></i>
-                            <h4>Hotel Reservations</h4>
-                            <p>Secure your stay with our hotel reservation services. We provide a wide range of options to match your preferences and budget.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>              
+      </div>
+      <div class="col-md-4">
+        <div class="article quote-box">
+          <p>“The most beautiful in the world is, of course, the world itself.” <br /> <span>- Wallace Stevens -</span>
+          </p>
+        </div>
+        <div class="article">
+          <img src="https://s1.travix.com/no/north-america-canada-lake-moraine-medium.jpg" class="img-fluid">
+          <h2 class="location"><b>Canada</b> <br /> Road trip destinations</h2>
+          <p class="desc">Nunc mollis risus quis dui sodales viverra. Cras in iaculis metus. Fusce non dictum tortor,
+            nec fermentum orci. Fusce eu varius dui, eget varius urna. Quisque eleifend ut ante vel pharetra.</p>
+          <div class="info">
+            <span class="date"><i class="far fa-tag"></i> $499</span>
+            <span class="comment"><i class="far fa-comment-alt"></i> 4 comments</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="article">
+          <img
+            src="https://static.euronews.com/articles/stories/06/48/22/92/1440x810_cmsv2_31f9c339-7751-57b2-b3f1-da2551bffb47-6482292.jpg"
+            class="img-fluid">
+          <h2 class="location"><b>Greece</b> <br /> Travel tales and tips</h2>
+          <p class="desc">Aliquam tempor, odio eget vehicula tempor, risus elit dignissim felis, ornare pretium augue
+            elit nec arcu. Etiam a lacus leo. Sed lobortis nisl bibendum tellus malesuada laoreet. Nulla eu interdum
+            sem, vitae efficitur dolor.</p>
+          <div class="info">
+            <span class="date"><i class="far fa-tag"></i>$600</span>
+            <span class="comment"><i class="far fa-comment-alt"></i> 2 comments</span>
+          </div>
+        </div>
+        <div class="article quote-box">
+          <p>“Travel is never a matter of money but of courage.”<br /> <span>- Paolo Coelho -</span></p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <hr>
+  <div class="services-section" id="services">
+    <div class="container">
+      <h2 class="text-center mb-4">What We Do</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="service-card">
+            <i class="fas fa-globe-americas"></i>
+            <h4>Global Travel Planning</h4>
+            <p>We help you plan your perfect journey, from exotic destinations to local getaways. Our expertise ensures
+              a seamless travel experience.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card">
+            <i class="fas fa-plane"></i>
+            <h4>Flight Booking</h4>
+            <p>Find the best flight options with our comprehensive booking service. We offer competitive prices and
+              flexible options to fit your needs.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card">
+            <i class="fas fa-hotel"></i>
+            <h4>Hotel Reservations</h4>
+            <p>Secure your stay with our hotel reservation services. We provide a wide range of options to match your
+              preferences and budget.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
 </body>
-{% endblock content %} 
+{% endblock content %}
 <!-- Footer -->
 <footer class="bg-body-tertiary text-center">
-    <!-- Grid container -->
-    <div class="container p-4">
-      <!-- Section: Social media -->
-      <section class="mb-4">
-        <!-- Facebook -->
-        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-facebook-f"></i
-        ></a>
-  
-        <!-- Twitter -->
-        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-x"></i></i
-        ></a>
-  
-        <!-- Google -->
-        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-google"></i
-        ></a>
-  
-        <!-- Instagram -->
-        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-instagram"></i
-        ></a>
-  
-        <!-- Linkedin -->
-        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-linkedin-in"></i
-        ></a>
-  
-        <!-- Github -->
-        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-github"></i
-        ></a>
-      </section>
-      <!-- Copyright -->
-      <div class="text-center">
-        <p>&copy; 2024 Layali. All rights reserved.</p>
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"><i
+          class="fab fa-facebook-f"></i></a>
+
+      <!-- Twitter -->
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"><i
+          class="fab fa-x"></i></i></a>
+
+      <!-- Google -->
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"><i
+          class="fab fa-google"></i></a>
+
+      <!-- Instagram -->
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"><i
+          class="fab fa-instagram"></i></a>
+
+      <!-- Linkedin -->
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"><i
+          class="fab fa-linkedin-in"></i></a>
+
+      <!-- Github -->
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"><i
+          class="fab fa-github"></i></a>
+    </section>
+    <!-- Copyright -->
+    <div class="text-center">
+      <p>&copy; 2024 Layali. All rights reserved.</p>
     </div>
-    </footer>
- <!-- jQuery for Bootstrap JavaScript components -->
- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
- integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
- crossorigin="anonymous"></script>
+</footer>
+<!-- jQuery for Bootstrap JavaScript components -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <!-- Popper.js for Bootstrap tooltips and popovers -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
- integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
- crossorigin="anonymous"></script>
- <!-- Bootstrap JavaScript for interactive components -->
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<!-- Bootstrap JavaScript for interactive components -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
- integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
- crossorigin="anonymous">
- <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
 </script>
+
 </html>
