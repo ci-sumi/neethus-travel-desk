@@ -69,3 +69,6 @@ class DestinationForm(forms.ModelForm):
                 'image':forms.ClearableFileInput(attrs={'class':'form-control'}),
                 'is_favorite':forms.CheckboxInput(attrs={'class':'form-control'})}
        
+
+class DestinationSearchForm(forms.Form):
+    query = forms.CharField(required=False,label="Search Destinations")
