@@ -9,6 +9,9 @@ from .forms import ContactForm
 from .forms import DestinationForm
 from .models import Destination
 from django.core.paginator import Paginator
+from django.db.models import Q
+from django import forms
+from .forms import DestinationSearchForm
 
 # Create your views here.
 def index(request):
@@ -68,11 +71,30 @@ def contact(request):
     return render(request,'contact.html',{'form':form})
     
 def destination_list(request):
-    destinations_list = Destination.objects.all()
+    form = DestinationSearchForm(request.GET or None)
+    query = request.GET.get('query','')
+    if query:
+        destinations_list = Destination.objects.filter(
+           Q(name__icontains=query) |
+           Q(country__icontains=query) |
+           Q(description__icontains=query) |
+           Q(best_time_to_visit__icontains=query)|
+           Q(budget_type__icontains=query)
+           
+           
+           
+        )
+           
+    else:
+        destinations_list = Destination.objects.all()
     paginator = Paginator(destinations_list, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request,'destination_list.html',{'page_obj':page_obj})
+
+
+
+
 
 
 def destination_create(request):
@@ -88,3 +110,4 @@ def destination_create(request):
 
 def destination_detail(request):
     return render(request,'destination_detail.html')
+
