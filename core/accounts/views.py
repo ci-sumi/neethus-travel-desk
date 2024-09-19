@@ -12,6 +12,8 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django import forms
 from .forms import DestinationSearchForm
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def index(request):
@@ -92,17 +94,14 @@ def destination_list(request):
     page_obj = paginator.get_page(page_number)
     return render(request,'destination_list.html',{'page_obj':page_obj})
 
-
-
-
-
-
+@login_required
 def destination_create(request):
     if request.method=='POST':
         form = DestinationForm(request.POST,request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('destination_list')
+        destination = form.save(commit=False)
+        destination.user = request.user
+        destination.save()
+        return redirect('destination_list')
     else:
         form = DestinationForm()
     return render(request,'destination_form.html',{'form':form})
@@ -111,3 +110,8 @@ def destination_create(request):
 def destination_detail(request):
     return render(request,'destination_detail.html')
 
+@login_required
+def mydestination(request):
+    destinations = Destination.objects.filter(user = request.user)
+    
+    return render(request,'mydestination.html',{'destinations':destinations,'username': request.user.username})
