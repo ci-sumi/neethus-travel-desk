@@ -13,4 +13,6 @@ urlpatterns = [
     path('destinations_list/',views.destination_list,name='destination_list'),
     path('destinations/new',views.destination_create,name='destination_form'),
     path('destination_detail/<int:pk>/',views.destination_detail,name='destination_detail'),
+    path('my-destinations/',views.mydestination,name='mydestination')
+    
 ] 
