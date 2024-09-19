@@ -60,7 +60,7 @@ class ContactForm(forms.ModelForm):
 class DestinationForm(forms.ModelForm):
     class Meta:
         model= Destination
-        fields ='__all__'
+        fields =['name','country','description','best_time_to_visit','budget_type','image','is_favorite']
         widgets ={'name':forms.TextInput(attrs={'class':'form-control'}),
                 'country':forms.TextInput(attrs={'class':'form-control'}),
                 'description':forms.Textarea(attrs={'class':'form-control'}),
