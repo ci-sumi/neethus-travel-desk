@@ -1,5 +1,6 @@
 from django.db import models
 from django import forms
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Contact(models.Model):
@@ -16,7 +17,7 @@ class Destination(models.Model):
     description = models.TextField(blank=True)
     SEASON_CHOICES = [('Spring','Spring'),
                       ('Summer','Summer'),
-                      ('Spring','Spring'),
+                      ('Autumn','Autumn'),
                       ('Winter','Winter')]
     best_time_to_visit = models.CharField(max_length=6,choices=SEASON_CHOICES,
                                           default='Spring')
@@ -28,6 +29,7 @@ class Destination(models.Model):
                                    default='Mid-range')
     image = models.ImageField(upload_to='destinations/',blank=True,null=True)
     is_favorite = models.BooleanField(default=False)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='destinations',default=1)
     
     def __str__(self):
         return self.name
