@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import login as auth_login,authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignupForm
@@ -107,8 +107,9 @@ def destination_create(request):
     return render(request,'destination_form.html',{'form':form})
 
 
-def destination_detail(request):
-    return render(request,'destination_detail.html')
+def destination_detail(request,id):
+    destination = get_object_or_404(Destination,id=id)
+    return render(request,'destination_detail.html',{'destination':destination})
 
 @login_required
 def mydestination(request):
