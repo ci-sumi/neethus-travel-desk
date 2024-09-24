@@ -116,3 +116,15 @@ def mydestination(request):
     destinations = Destination.objects.filter(user = request.user)
     
     return render(request,'mydestination.html',{'destinations':destinations,'username': request.user.username})
+
+
+def destination_update(request,destination_id):
+    destination = get_object_or_404(Destination, id=destination_id)
+    if request.method == 'POST':
+        form = DestinationForm(request.POST, request.FILES, instance=destination)
+        if form.is_valid():
+            form.save()
+            return redirect('destination_detail', id=destination_id)
+    else:
+        form = DestinationForm(instance=destination)
+    return render(request, 'destination_form.html', {'form': form,'destination':destination})
