@@ -128,3 +128,12 @@ def destination_update(request,destination_id):
     else:
         form = DestinationForm(instance=destination)
     return render(request, 'destination_form.html', {'form': form,'destination':destination})
+
+
+def destination_delete(request, destination_id):
+    destination = get_object_or_404(Destination, id=destination_id)
+    if request.method == 'POST':
+        destination.delete()
+        return redirect('mydestination')
+
+    return render(request,'destination_delete.html', {'destination':destination})
