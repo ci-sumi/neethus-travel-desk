@@ -51,9 +51,14 @@
                     
 
 
-
+                       <a href="{% url 'likes_destination' destination.id %}" method="post">
                         <button class="btn btn-outline-primary">
-                            <i class="fas fa-thumbs-up"></i>
+                            {% if user.is_authenticated and user in destination.likes.all%}
+                            <i class="fas fa-thumbs-up" style="color: blue;"></i>
+                            {% else %}
+                            <i class="fas fa-thumbs-up" ></i>
+                            {% endif %}
+                            <span> {{destination.total_likes}}likes</sapn>
                         </button>
                         {% if user.is_authenticated and user == destination.user%}
 
