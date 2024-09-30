@@ -38,10 +38,17 @@
                     </p>
 
                     <!-- Add favorite icon (if desired) -->
-                    <div class="d-flex justify-content-start">
-                        <button class="btn btn-outline-primary">
-                            <i class="fas fa-heart"></i>
+                    <a href="{% url 'favorite_destination' destination.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-primary">
+                            {% if user.is_authenticated and user in destination.favorites.all %}
+                                <i class="fas fa-heart" style="color: red;"></i> <!-- Marked as favorite -->
+                            {% else %}
+                                <i class="fas fa-heart"></i> <!-- Not marked as favorite -->
+                            {% endif %}
                         </button>
+                    </a>
+                    
 
 
 
