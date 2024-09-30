@@ -18,5 +18,6 @@ urlpatterns = [
     path('delete_destination/<int:destination_id>/',views.destination_delete,name='destination_delete'),
     path('favorites/<int:destination_id>/',views.favorite_destination,name='favorite_destination'),
     path('favorites/',views.my_favorites,name='my_favorites'),
+    path('likes/<int:destination_id>/',views.likes_destination,name='likes_destination'),
     
 ] 
