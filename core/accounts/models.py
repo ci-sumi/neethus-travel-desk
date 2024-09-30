@@ -30,6 +30,7 @@ class Destination(models.Model):
     image = models.ImageField(upload_to='destinations/',blank=True,null=True)
     is_favorite = models.BooleanField(default=False)
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='destinations',default=1)
+    favorites = models.ManyToManyField(User,related_name='favorite_destinations',blank=True)
     
     def __str__(self):
         return self.name
