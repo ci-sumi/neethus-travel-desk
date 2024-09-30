@@ -31,8 +31,13 @@ class Destination(models.Model):
     is_favorite = models.BooleanField(default=False)
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='destinations',default=1)
     favorites = models.ManyToManyField(User,related_name='favorite_destinations',blank=True)
+    likes = models.ManyToManyField(User,related_name='liked_destinations',blank=True)
     
     def __str__(self):
         return self.name
+    
+    
+    def total_likes(self):
+        return self.likes.count()
     
     
