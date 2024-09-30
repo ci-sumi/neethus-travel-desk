@@ -137,3 +137,23 @@ def destination_delete(request, destination_id):
         return redirect('mydestination')
 
     return render(request,'destination_delete.html', {'destination':destination})
+
+
+@login_required
+def favorite_destination(request,destination_id):
+    destination = get_object_or_404(Destination, id=destination_id)
+    if request.user in destination.favorites.all():
+        destination.favorites.remove(request.user)
+    else:
+        destination.favorites.add(request.user)
+    return redirect('destination_detail', id=destination.id)
+
+
+login_required
+
+def my_favorites(request):
+    favorite_destination = Destination.objects.filter(favorites=request.user)
+    
+    return render(request,'my_favorites.html',{'favorite_destination':favorite_destination})
+    
+    
