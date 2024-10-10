@@ -12,7 +12,13 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django import forms
 from .forms import DestinationSearchForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required   
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
+from .models import UserProfile
+
+
+
 
 
 # Create your views here.
@@ -166,5 +172,19 @@ def likes_destination(request, destination_id):
         destination.likes.add(request.user)
         
     return redirect('destination_detail', id=destination.id)
-    
-    
+
+
+
+@login_required
+def profile_view(request):
+    try:
+        user_profile = UserProfile.objects.get(user=request.user)
+    except UserProfile.DoesNotExist:
+        user_profile = UserProfile.objects.create(user=request.user)
+
+    context = {
+        'user': request.user,  # Pass the User object
+        'user_profile': user_profile,  # Pass the UserProfile object
+    }
+
+    return render(request, 'profile.html', context)
