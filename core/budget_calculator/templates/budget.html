@@ -1,0 +1,17 @@
+<!-- budget_calculator/templates/budget_calculator/budget_calculator.html -->
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Travel Budget Calculator</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Calculate Total Budget</button>
+    </form>
+
+    {% if total_cost %}
+        <h4 class="mt-4">Total Estimated Budget: ${{ total_cost }}</h4>
+    {% endif %}
+</div>
+{% endblock %}
