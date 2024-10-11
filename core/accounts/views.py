@@ -14,8 +14,8 @@ from django import forms
 from .forms import DestinationSearchForm
 from django.contrib.auth.decorators import login_required   
 from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.forms import PasswordChangeForm
 from .models import UserProfile
+from .forms import ProfileUpdateForm,ProfileImageUpdateForm,PasswordUpdateForm
 
 
 
@@ -188,3 +188,35 @@ def profile_view(request):
     }
 
     return render(request, 'profile.html', context)
+
+
+@login_required
+def update_profile(request):
+    if request.method == 'POST':
+        profile_form = ProfileUpdateForm(request.POST, instance=request.user)
+        password_form = PasswordUpdateForm(request.POST)
+        image_form = ProfileImageUpdateForm(request.POST,request.FILES,instance=request.user.user_profile)
+        if profile_form.is_valid() and password_form.is_valid() and image_form.is_valid():
+            profile_form.save()
+            
+            
+            new_password = password_form.cleaned_data.get('new_password1')
+            request.user.set_password(new_password)
+            request.user.save()
+            update_session_auth_hash(request,request.user)
+            
+        image_form.save()
+            
+    
+            
+        messages.success(request,'Your profile has been successfully updated')
+        return redirect('profile_view')
+    else:
+        profile_form = ProfileUpdateForm(instance=request.user)
+        password_form = PasswordUpdateForm()
+        image_form = ProfileImageUpdateForm(instance=request.user.user_profile)
+            
+    return render(request,'update_profile.html',{'profile_form':profile_form,
+                          'password_form': password_form,
+                          'image_form': image_form})
+            
