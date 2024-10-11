@@ -67,7 +67,12 @@
 
 
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'profile_view'%}">{{user.username}}</a>
+          <a class="nav-link" href="{%url 'profile_view'%}">
+            {% if user.user_profile.profile_picture%}
+            <img src="{{ user.user_profile.profile_picture.url }}" class="img-thumbnail rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">{{user.username}}</a>
+            {% else %}
+            <img src="{% static 'images/Cappadocia.jpg' %}" class="img-thumbnail rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">{{user.username}}</a>
+            {% endif %}
         </li>
         <li class="nav-item">
           <form action="{% url 'logout'%}" method="post">
