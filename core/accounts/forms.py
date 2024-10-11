@@ -3,7 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Contact
 from .models import Destination
-
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.forms import SetPasswordForm
+from .models import UserProfile
 
 class SignupForm(UserCreationForm):
     username=forms.CharField(max_length=100)
@@ -72,3 +74,36 @@ class DestinationForm(forms.ModelForm):
 
 class DestinationSearchForm(forms.Form):
     query = forms.CharField(required=False,label="Search Destinations")
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+    class Meta:
+        model = User
+        fields =['email']
+        
+        
+class PasswordUpdateForm(forms.Form):
+    new_password1 = forms.CharField(label="New Password",
+                                   widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+                                                            help_text="Enter a new password",)
+    new_password2 = forms.CharField(
+        label="Confirm Password",
+        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+        help_text="Re-enter the new password for confirmation.",
+    )
+    def clean(self):
+        cleaned_data = super().clean()
+        new_password1 = cleaned_data.get("new_password1")
+        new_password2 = cleaned_data.get("new_password2")
+        if new_password1 and new_password2 and new_password1!= new_password2:
+            raise forms.ValidationError("Passwords do not match")
+        return cleaned_data
+    
+
+class ProfileImageUpdateForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['profile_picture']
+    
+        
