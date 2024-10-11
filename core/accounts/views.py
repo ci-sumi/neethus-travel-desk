@@ -219,4 +219,14 @@ def update_profile(request):
     return render(request,'update_profile.html',{'profile_form':profile_form,
                           'password_form': password_form,
                           'image_form': image_form})
+    
+    
+@login_required
+def delete_profile(request):
+        if request.method == 'POST':
+            request.user.delete()
+            messages.success(request,'Your profile has been deleted')
+            return redirect('index')
+            
+        return render(request,'delete_profile.html',{'user':request.user})
             
