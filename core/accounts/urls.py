@@ -11,6 +11,7 @@ urlpatterns = [
     path('logout',CustomLogoutView.as_view(),name='logout'),
     path('profile_view',views.profile_view,name='profile_view'),
     path('update_profile',views.update_profile,name='update_profile'),
+    path('delete_profile',views.delete_profile,name='delete_profile'),
     path('contact',views.contact,name='contact'),
     path('destinations_list/',views.destination_list,name='destination_list'),
     path('destinations/new',views.destination_create,name='destination_form'),
