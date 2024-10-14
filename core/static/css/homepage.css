@@ -7,37 +7,46 @@ body {
 body {
   display: flex;
   flex-direction: column;
+  background-color: #FFFFFF;
+  color: #003366; 
+
 }
-.navbar{
-  background-color:white!important;
+
+.navbar {
+  background-color:  #87CEEB !important;
   padding: 0px !important;
-  box-shadow: 0 4px 8px black;
-  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+
 }
-.nav-item{
+
+.nav-item {
   list-style: none;
 }
 
-.navbar-brand,.nav-link {
+.navbar-brand,
+.nav-link {
   display: inline;
-  color: black !important;
+  color:#003366 !important;
   /* Change text color to white for better contrast */
-  font-family: 'Raleway', sans-serif; /* Change to your chosen font */
-  font-size: 1.2rem; /* Adjust as needed for size */
+  font-family: 'Raleway', sans-serif;
+  /* Change to your chosen font */
+  font-size: 1.2rem;
+  /* Adjust as needed for size */
 }
 
 .navbar-brand h1 {
   font-family: 'Lobster', cursive;
   font-size: 2.5rem;
   /* Adjust size as needed */
-  color: #800080;
+  color: white;
   /* Purple color */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   /* Optional shadow for extra effect */
 }
 
 /* Base styling for nav links */
- .nav-link {
+.nav-link {
   color: white;
   /* Text color for better contrast */
   text-decoration: none;
@@ -60,7 +69,7 @@ body {
   /* Full width of the link */
   height: 2px;
   /* Thickness of the underline */
-  background-color: #a64dff;
+  background-color: #FFC857;
   /* Purple color for underline */
   transform: scaleX(0);
   /* Initially hidden */
@@ -75,16 +84,24 @@ body {
 }
 
 .intro {
+  background-color: #87CEEB;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 100px 80px;
   color: #fff;
+  padding: 100px 80px;
+}
+.small{
+  font-size:0.5em;
+  vertical-align: middle;
+  animation: fly-up 2s infinite;
+  animation: fly-up 2s infinite;
 }
 
-section:not(.intro):nth-child(odd) {
+/* section:not(.intro):nth-child(odd) {
   background-color: #f5f5f5;
-}
+} */
 
 .intro {
 
@@ -105,7 +122,7 @@ section:not(.intro):nth-child(odd) {
   height: 100%;
   background-size: cover;
   opacity: 0.95;
-  background-color: #800080;
+  background-color: #D9BBF9;
   z-index: -1;
 
 }
@@ -123,16 +140,18 @@ section:not(.intro):nth-child(odd) {
 }
 
 .btn {
-  font-family: 'Do Hyeon', sans-serif;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: center;
-  background-color: white;
-  opacity: 1;
-
-  padding: 15px
+  background-color: #FFA500; /* Optional accent color */
+  color: #FFFFFF; /* White text */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Add padding */
+  border-radius: 5px; /* Rounded corners */
+  text-align: center; /* Center text */
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
+.btn:hover {
+  background-color: #FF8C00; /* Darker shade on hover */
+}
+
 
 .intro-area {
   animation: slidein 1s 1s forwards;
@@ -184,24 +203,21 @@ main {
 }
 
 .article {
-  background: linear-gradient(135deg, #800080, #a8c6ee);
-  /* Gradient background with complementary tones */
-  padding: 20px;
-  /* Increase padding for more space */
-  margin-bottom: 22px;
-  border-radius: 12px;
-  /* Smooth corners */
-  box-shadow: 0px 4px 15px rgba(128, 163, 219, 0.3);
-  /* Shadow with a slight tint of the background color */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* Smooth hover effects */
+  background-color: #F0F0F0; /* Light Grey */
+  color: #003366; /* Dark Navy Blue */
+  border: 1px solid #87CEEB; /* Sky Blue border */
+  padding: 20px; /* Increase padding for more space */
+  margin-bottom: 20px; /* Space between articles */
+  border-radius: 12px; /* Smooth corners */
+  box-shadow: 0px 4px 15px rgba(128, 163, 219, 0.3); /* Subtle shadow */
 }
 
 .article:hover {
   transform: translateY(-5px);
   /* Slight lift on hover */
-  box-shadow: 0px 6px 20px rgba(128, 163, 219, 0.4);
+  /* box-shadow: 0px 6px 20px rgba(128, 163, 219, 0.4); */
   /* Enhanced shadow on hover */
+  background-color: #FFFFFF;
 }
 
 .article .location {
@@ -281,8 +297,8 @@ main {
 
 .services-section {
   padding: 60px 0;
-  background: linear-gradient(135deg, #800080, #a8c6ee);
-  box-shadow: 0 4px 8px black;
+  background: linear-gradient(135deg,#D0E7F2, #FFB3A1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   /* Light blue-grey background for elegance */
 }
 
@@ -300,14 +316,14 @@ main {
 
 .service-card:hover {
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-  border-left: 5px solid #6f42c1;
+  border-left: 5px solid #D35400;
   /* Highlight with purple border */
   transform: translateY(-5px);
 }
 
 .service-card i {
   font-size: 2.5rem;
-  color: #6f42c1;
+  color: #6F42C1;;
   /* Purple color */
   margin-bottom: 20px;
   transition: color 0.3s ease;
@@ -327,7 +343,7 @@ main {
 }
 
 .service-card:hover h4 {
-  color: #6f42c1;
+  color:  #D35400;
   /* Purple on hover */
 }
 
@@ -360,13 +376,10 @@ h2 {
 }  */
 
 footer {
-  margin-top: auto;
-  /* Pushes the footer to the bottom of the page */
-  /* Light background color for the footer */
-  padding: 20px;
-  /* Space inside the footer */
-  text-align: center;
-  /* Center align text inside the footer */
+  /* Dark Navy Blue */
+  color: #FFFFFF; /* White text */
+  text-align: center; /* Center align footer text */
+  padding: 20px; /* Space inside the footer */
 
 }
 
@@ -378,4 +391,5 @@ footer {
   margin-top: 2rem;
   animation: flash 1s infinite;
   font-size: 22px;
+  color: #FF6F61;
 }
