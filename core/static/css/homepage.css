@@ -13,7 +13,7 @@ body {
 }
 
 .navbar {
-  background-color:  #87CEEB !important;
+  background-color:#FFFFF0 !important;
   padding: 0px !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 10px;
@@ -27,7 +27,7 @@ body {
 .navbar-brand,
 .nav-link {
   display: inline;
-  color:#003366 !important;
+  color:black !important;
   /* Change text color to white for better contrast */
   font-family: 'Raleway', sans-serif;
   /* Change to your chosen font */
@@ -39,7 +39,7 @@ body {
   font-family: 'Lobster', cursive;
   font-size: 2.5rem;
   /* Adjust size as needed */
-  color: white;
+  color: black;
   /* Purple color */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   /* Optional shadow for extra effect */
@@ -69,7 +69,7 @@ body {
   /* Full width of the link */
   height: 2px;
   /* Thickness of the underline */
-  background-color: #FFC857;
+  background-color: black;
   /* Purple color for underline */
   transform: scaleX(0);
   /* Initially hidden */
@@ -91,6 +91,7 @@ body {
   padding: 100px 80px;
   color: #fff;
   padding: 100px 80px;
+
 }
 .small{
   font-size:0.5em;
@@ -140,8 +141,8 @@ body {
 }
 
 .btn {
-  background-color: #FFA500; /* Optional accent color */
-  color: #FFFFFF; /* White text */
+  background-color:#FFFFF0; /* Optional accent color */
+  color: black; /* White text */
   border: none; /* Remove default border */
   padding: 10px 20px; /* Add padding */
   border-radius: 5px; /* Rounded corners */
@@ -149,7 +150,8 @@ body {
   transition: background-color 0.3s ease; /* Smooth transition */
 }
 .btn:hover {
-  background-color: #FF8C00; /* Darker shade on hover */
+  background-color:#FF007F; /* Darker shade on hover */
+  color:black;
 }
 
 
@@ -203,9 +205,9 @@ main {
 }
 
 .article {
-  background-color: #F0F0F0; /* Light Grey */
+  background-color: #87CEEB; /* Light Grey */
   color: #003366; /* Dark Navy Blue */
-  border: 1px solid #87CEEB; /* Sky Blue border */
+  border: 1px solid black; /* Sky Blue border */
   padding: 20px; /* Increase padding for more space */
   margin-bottom: 20px; /* Space between articles */
   border-radius: 12px; /* Smooth corners */
@@ -217,7 +219,7 @@ main {
   /* Slight lift on hover */
   /* box-shadow: 0px 6px 20px rgba(128, 163, 219, 0.4); */
   /* Enhanced shadow on hover */
-  background-color: #FFFFFF;
+  background-color: ivory;
 }
 
 .article .location {
@@ -227,7 +229,7 @@ main {
   /* Slightly larger font for emphasis */
   margin-top: 15px;
   font-family: "Open Sans", sans-serif;
-  color: white;
+  color: #FF007F;
   /* Darker blue for contrast */
 }
 
@@ -297,7 +299,7 @@ main {
 
 .services-section {
   padding: 60px 0;
-  background: linear-gradient(135deg,#D0E7F2, #FFB3A1);
+  background: ivory;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   /* Light blue-grey background for elegance */
 }
@@ -306,7 +308,7 @@ main {
   text-align: center;
   border-radius: 10px;
   padding: 40px 20px;
-  background-color: #fff;
+  background-color: #87CEEB;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   position: relative;
@@ -316,14 +318,14 @@ main {
 
 .service-card:hover {
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-  border-left: 5px solid #D35400;
+  border-left: 5px solid #FF007F;;
   /* Highlight with purple border */
   transform: translateY(-5px);
 }
 
 .service-card i {
   font-size: 2.5rem;
-  color: #6F42C1;;
+  color: white;
   /* Purple color */
   margin-bottom: 20px;
   transition: color 0.3s ease;
@@ -343,7 +345,7 @@ main {
 }
 
 .service-card:hover h4 {
-  color:  #D35400;
+  color:  #FF007F;;
   /* Purple on hover */
 }
 
@@ -358,7 +360,7 @@ main {
 hr {
   border: 0;
   height: 1px;
-  background: #e0e0e0;
+  background: black;
   /* Subtle line */
   margin: 40px 0;
 }
@@ -375,13 +377,14 @@ h2 {
   
 }  */
 
-footer {
+footer{
   /* Dark Navy Blue */
-  color: #FFFFFF; /* White text */
+  color: black; /* White text */
   text-align: center; /* Center align footer text */
   padding: 20px; /* Space inside the footer */
+  font-size: 1.2rem;
+  }
 
-}
 
 /* Flashing effect */
 
@@ -393,3 +396,4 @@ footer {
   font-size: 22px;
   color: #FF6F61;
 }
+
