@@ -1,23 +1,12 @@
-{% extends "index.html" %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'index.html' %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
-  <!-- Link to Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-  {% block content %}
+{% block content %}
   <!-- Full-height container to center content vertically and horizontally -->
   <div class="container vh-100 d-flex justify-content-center align-items-center">
     <div class="row justify-content-center">
       <!-- Center the form using Bootstrap grid classes -->
-      <div class="col-md-14">
-        <div class="card p-4">
+      <div class="col-md-20">
+        <div class="card p-4" style="border-color: black;margin-top: 50px;">
           <!-- Card to give a boxed look -->
           <h1 class="text-center mb-4">Register Form</h1>
           <form method="POST" novalidate>
@@ -26,28 +15,28 @@
             <!-- Username Field -->
             <div class="form-group">
               <label for="id_username" class="form-label">Username</label>
-              <input type="text" name="username" id="id_username" class="form-control" value="{{ form.username.value|default_if_none:'' }}">
+              <input type="text" name="username" id="id_username" class="form-control" value="{{ form.username.value|default_if_none:'' }}" />
               <div class="text-danger">{{ form.username.errors }}</div>
             </div>
 
             <!-- Email Field -->
             <div class="form-group">
               <label for="id_email" class="form-label">E-mail</label>
-              <input type="email" name="email" id="id_email" class="form-control" value="{{ form.email.value|default_if_none:'' }}">
+              <input type="email" name="email" id="id_email" class="form-control" value="{{ form.email.value|default_if_none:'' }}" />
               <div class="text-danger">{{ form.email.errors }}</div>
             </div>
 
             <!-- Password Field -->
             <div class="form-group">
               <label for="id_password1" class="form-label">Password</label>
-              <input type="password" name="password1" id="id_password1" class="form-control">
+              <input type="password" name="password1" id="id_password1" class="form-control" />
               <div class="text-danger">{{ form.password1.errors }}</div>
             </div>
 
             <!-- Confirm Password Field -->
             <div class="form-group">
               <label for="id_password2" class="form-label">Confirm Password</label>
-              <input type="password" name="password2" id="id_password2" class="form-control">
+              <input type="password" name="password2" id="id_password2" class="form-control" />
               <div class="text-danger">{{ form.password2.errors }}</div>
             </div>
 
@@ -56,19 +45,13 @@
               <button type="submit" class="btn btn-primary btn-block">Register</button>
             </div>
             <div class="text-center">
-              <p>Already have an account<a href="{%url 'login'%}"> Login here</p>
+              <p>
+                Already have an account? <a href="{% url 'login' %}">Login here</a>
+              </p>
             </div>
           </form>
         </div>
       </div>
     </div>
   </div>
-  {% endblock %}
-
-  <!-- Bootstrap JavaScript and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+{% endblock %}
