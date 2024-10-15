@@ -1,66 +1,47 @@
-{% extends "index.html" %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'index.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <!-- Link to Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-    {% block content %}
-    <!-- Full-height container to center content vertically and horizontally -->
-    <div class="container vh-100 d-flex justify-content-center align-items-center">
-        <div class="row justify-content-center">
-            <!-- Center the form using Bootstrap grid classes -->
-            <div class="col-md-14">
-                <div class="card p-4">
-                    <!-- Card to give a boxed look -->
-                    <h1 class="text-center mb-4">Login</h1>
-                    {%if messages%}
-                      {%for message in messages%}
-                      <div class="alert alert-{{ message.tags }} fade show" role="alert">
-                        {{message}}
-                      {% endfor %}
-                    {% endif %}
-                    <form method="POST" novalidate>
-                        {% csrf_token %}
-                    
-                            <!-- Username Field -->
-                            <div class="form-group">
-                                <label for="id_username" class="form-label">Username</label>
-                                <input type="text" name="username" id="id_username" class="form-control"
-                                    value="{{ form.username.value|default_if_none:'' }}">
-                            </div>
-
-                            <!-- Password Field -->
-                            <div class="form-group">
-                                <label for="id_password1" class="form-label">Password</label>
-                                <input type="password" name="password" id="id_password1" class="form-control">
-                            </div>
-
-
-                            <!-- Submit Button -->
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block">Login</button>
-                            </div>
-                            <div class="text-center">
-                                <p>Dont havehave an account<a href="{%url 'register'%}"> Register here</p>
-                            </div>
-                    </form>
-                </div>
+{% block content %}
+  <!-- Full-height container to center content vertically and horizontally -->
+  <div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div class="row justify-content-center">
+      <!-- Center the form using Bootstrap grid classes -->
+      <div class="col-md-25">  <!-- Changed from col-md-20 to col-md-6 -->
+        <div class="card p-4" style="max-width: 1000px; border-color: black;margin-top: 50px;">
+          <!-- Card to give a boxed look -->
+          <h1 class="text-center mb-4">Login</h1>
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }} fade show" role="alert">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+          <form method="POST" novalidate>
+            {% csrf_token %}
+            <!-- Username Field -->
+            <div class="form-group">
+              <label for="id_username" class="form-label">Username</label>
+              <input type="text" name="username" id="id_username" class="form-control" value="{{ form.username.value|default_if_none:'' }}">
             </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+              <label for="id_password1" class="form-label">Password</label>
+              <input type="password" name="password" id="id_password1" class="form-control">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </div>
+
+            <!-- Link to Register -->
+            <div class="text-center">
+              <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-    {% endblock %}
-
-    <!-- Bootstrap JavaScript and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+  </div>
+{% endblock %}
