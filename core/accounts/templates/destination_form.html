@@ -1,13 +1,40 @@
-{%extends 'index.html'%}
+{% extends 'index.html' %}
 {% block content %}
-<div class="container mt-4">
+<div class="container mt-4" style="background-color:#87CEEB;">
     <h3 class="text-center">Add New Destination</h3>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
-            {{ form.as_p }}
+            <!-- Render each field individually -->
+            {{ form.name.label_tag }}
+            {{ form.name }}
+
+            {{ form.country.label_tag }}
+            {{ form.country }}
+
+            {{ form.description.label_tag }}
+            {{ form.description }}
+
+            {{ form.best_time_to_visit.label_tag }}
+            {{ form.best_time_to_visit }}
+
+            {{ form.budget_type.label_tag }}
+            {{ form.budget_type }}
+
+            {{ form.image.label_tag }}
+            {{ form.image }}
+
+            <!-- Manually render the is_favorite checkbox -->
+            <div class="form-check">
+                {{ form.is_favorite }}
+                <label class="form-check-label" for="{{ form.is_favorite.id_for_label }}">
+                    Mark as Favorite
+                </label>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="d-flex justify-content-center mt-3">
+            <button type="submit" class="btn btn-primary" style="margin: 2px;">Submit</button>
+        </div>
     </form>
 </div>
 {% endblock %}
