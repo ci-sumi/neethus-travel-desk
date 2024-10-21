@@ -5,7 +5,7 @@ from accounts.models import Destination
 
 
 def budget_calculator(request):
-    total_cost = 0
+    total_cost = None
     form = BudgetCalculatorForm()
     if request.method == 'POST':
         form = BudgetCalculatorForm(request.POST)
