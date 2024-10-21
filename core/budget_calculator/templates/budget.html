@@ -1,17 +1,72 @@
-<!-- budget_calculator/templates/budget_calculator/budget_calculator.html -->
 {% extends "index.html" %}
 
 {% block content %}
-<div class="container mt-5">
-    <h2>Travel Budget Calculator</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Calculate Total Budget</button>
-    </form>
+<div class="d-flex justify-content-center align-items-center vh-80">
+    <div class="container text-center mt-4 mb-5" style="max-width: 400px; background-color: #87CEEB; padding: 1.5rem; border-radius: 8px;">
+        <h2 class="mb-4" style="font-size: 1.75rem;">Travel Budget Calculator</h2>
+        {% if form.destination.errors %}
+        <div class="alert alert-danger" role="alert">
+            <strong>Please provide a destination!</strong> {{ form.destination.errors|striptags }}
+        </div>
+        {% endif %}
+        
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
 
-    {% if total_cost %}
-        <h4 class="mt-4">Total Estimated Budget: ${{ total_cost }}</h4>
-    {% endif %}
+            <div class="d-flex justify-content-between mt-4">
+                <button type="submit" class="btn btn-primary">Calculate Total Budget</button>
+                <input type="reset" class="btn btn-secondary" value="Clear Fields">
+            </div>
+        </form>
+
+        {% if total_cost is not None %}
+        <div class="alert alert-success mt-4" role="alert">
+            <h4>Total Estimated Budget: <span class="text-success">${{ total_cost|default:"0" }}</span></h4>
+        </div>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
+
+<style>
+    body {
+        background-color: #f8f9fa; /* Light background for the entire body */
+        font-family: 'Arial', sans-serif; /* Use a clean, modern font */
+    }
+    h2 {
+        color: #343a40; /* Darker text color for better readability */
+    }
+    .alert {
+        margin-bottom: 20px; /* Space below alerts for better separation */
+    }
+    .btn-primary {
+        background-color: #007bff; /* Bootstrap primary color */
+        border: none; /* Remove border */
+    }
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker shade on hover */
+    }
+    .btn-secondary {
+        background-color: #6c757d; /* Bootstrap secondary color */
+        border: none; /* Remove border */
+    }
+    .btn-secondary:hover {
+        background-color: #5a6268; /* Darker shade on hover */
+    }
+    input[type="reset"] {
+        cursor: pointer; /* Change cursor for reset button */
+    }
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+        .container {
+            padding: 1rem; /* Adjust padding for smaller screens */
+            width: 90%; /* Set a percentage width for small screens */
+            max-width: 400px; /* Ensure a max width on smaller screens */
+        }
+        h2 {
+            font-size: 1.5rem; /* Smaller heading on small screens */
+        }
+    }
+</style>
+
