@@ -50,6 +50,7 @@ def login(request):
             
             if user is not None:
                 auth_login(request, user)  # Corrected to pass 'user' instead of 'username'
+                messages.success(request,"Login successful!")
                 return redirect('index')  # Redirect to the index page after successful login
             else:
                 messages.error(request, "Invalid username or password.")  # Feedback for invalid credentials
@@ -107,7 +108,14 @@ def destination_create(request):
         destination = form.save(commit=False)
         destination.user = request.user
         destination.save()
+        
+        if form.cleaned_data.get('is_favorite'):
+            destination.is_favorite = True 
+            destination.favorites.add(request.user)
+            destination.save()
+        
         return redirect('destination_list')
+    
     else:
         form = DestinationForm()
     return render(request,'destination_form.html',{'form':form})
@@ -155,7 +163,7 @@ def favorite_destination(request,destination_id):
     return redirect('destination_detail', id=destination.id)
 
 
-login_required
+@login_required
 
 def my_favorites(request):
     favorite_destination = Destination.objects.filter(favorites=request.user)
