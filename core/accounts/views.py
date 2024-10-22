@@ -70,13 +70,14 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request,"Your contact_form is submitted")
             return redirect('index')
-            messages.success(request,"Your form is submitted")
-            
+        else:
+            messages.error(request,"Please fill the fields properly")
         
     else:
         form=ContactForm()
-        messages.error(request,"Please fill the fiels properly")
+        
     return render(request,'contact.html',{'form':form})
     
 def destination_list(request):
@@ -113,6 +114,7 @@ def destination_create(request):
             destination.is_favorite = True 
             destination.favorites.add(request.user)
             destination.save()
+            messages.success(request,"Destination added successfully")
         
         return redirect('destination_list')
     
@@ -138,6 +140,7 @@ def destination_update(request,destination_id):
         form = DestinationForm(request.POST, request.FILES, instance=destination)
         if form.is_valid():
             form.save()
+            messages.success(request,'Destination updated')
             return redirect('destination_detail', id=destination_id)
     else:
         form = DestinationForm(instance=destination)
@@ -158,8 +161,11 @@ def favorite_destination(request,destination_id):
     destination = get_object_or_404(Destination, id=destination_id)
     if request.user in destination.favorites.all():
         destination.favorites.remove(request.user)
+        messages.success(request,"Removed from favorites")
     else:
         destination.favorites.add(request.user)
+        messages.success(request,"Add to favorites")
+        
     return redirect('destination_detail', id=destination.id)
 
 
