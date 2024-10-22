@@ -103,12 +103,20 @@
     </div>
   </nav>
   {% block content %}
-  {%for message in messages%}
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Success!</strong> Your message has been sent successfully.
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  {% if messages %}
+  <div class="alert-container position-relative">
+    <div class="mt-3 position-absolute w-90" style="z-index: 10;">
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} fade-out mb-3" role="alert";>
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endfor %}
+    </div>
   </div>
-  {% endfor %}
+{% endif %}
   <section class="intro">
     <div class="bg-img" style="background-image: url(https://wallpapersite.com/images/pages/pic_w/4792.jpg);"></div>
     <div class="intro-area">
