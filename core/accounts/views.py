@@ -64,6 +64,10 @@ def login(request):
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('login')
     
+    def dispatch(self, request, *args, **kwargs):
+        messages.success(request,"You have been logged out successfully.")
+        return super().dispatch(request, *args, **kwargs)
+    
     
 def contact(request):
     if request.method=="POST":
@@ -120,7 +124,7 @@ def destination_create(request):
     
     else:
         form = DestinationForm()
-    return render(request,'destination_form.html',{'form':form})
+    return render(request,'destination_form.html',{'form':form,'is_update': False })
 
 
 def destination_detail(request,id):
@@ -144,7 +148,7 @@ def destination_update(request,destination_id):
             return redirect('destination_detail', id=destination_id)
     else:
         form = DestinationForm(instance=destination)
-    return render(request, 'destination_form.html', {'form': form,'destination':destination})
+    return render(request, 'destination_form.html', {'form': form, 'is_update': True,'destination':destination})
 
 
 def destination_delete(request, destination_id):
