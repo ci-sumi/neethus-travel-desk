@@ -25,5 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('budget_calculator/', include('budget_calculator.urls')),
+    path('destination/', include('destination.urls')),
     path('',views.index,name='index')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

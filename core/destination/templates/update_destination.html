@@ -1,6 +1,6 @@
 {% extends "index.html" %}
 {% block content %}
-{% if messages %}
+{% comment %} {% if messages %}
           <div class="alert-container position-relative">
             <div class="mt-3 position-absolute w-90" style=" top:0;z-index: 1050;">
               {% for message in messages %}
@@ -16,15 +16,28 @@
         {% endif %}
        
 <div class="container mt-5">
-    <h2 class="text-center">Update Destination</h2>
+    <h2 class="text-center">
+        {% if is_update %}
+        Update Destination
+        {% else %}
+        Create Destination
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary">
+            {% if is_update %}
+            Update
+            {% else %}
+            Save
+            {% endif %}
+        </button>
     </form>
-    <div class="text-center mt-3">
-        <a href="{% url 'destination_update' destination.id %}" class="btn btn-secondary">Cancel</a>
-    </div>
-</div>
+    {% if is_update %}
+        <div class="text-center mt-3">
+            <a href="{% url 'destination_update' destination.id %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    {% endif %}
+    
+</div> {% endcomment %}
 
 {% endblock %}
