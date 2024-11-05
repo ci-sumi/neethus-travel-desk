@@ -1,6 +1,7 @@
 from django.db import models
 from django import forms
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Contact(models.Model):
@@ -16,7 +17,7 @@ class Contact(models.Model):
     
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='user_profile')
-    profile_picture =models.ImageField(upload_to='profile_picture',blank=True,null=True)
+    profile_picture = CloudinaryField('image', folder='profile_picture', blank=True, null=True)
     
     
     def __str__(self):
@@ -41,7 +42,7 @@ class Destination(models.Model):
     budget_type = models.CharField(max_length=10,
                                    choices=BUDGET_CHOICES,
                                    default='Mid-range')
-    image = models.ImageField(upload_to='destinations/',blank=True,null=True)
+    image = CloudinaryField('image', folder='destinations', blank=True, null=True)
     is_favorite = models.BooleanField(default=False)
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='destinations',default=1)
     favorites = models.ManyToManyField(User,related_name='favorite_destinations',blank=True)
