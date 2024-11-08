@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container mt-4  d-flex flex-column min-vh-100">
+<div class="container mt-4  d-flex flex-column max-vh-100">
     <h3 class="text-center">My Favorite Destinations</h3>
     
     <div class="row flex-grow-1">
@@ -32,4 +32,25 @@
         {% endfor %}
     </div>
 </div>
+{% if page_obj.has_other_pages %}
+<div class="d-flex justify-content-between mt-4">
+    <div>
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-secondary" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% else %}
+            <span class="btn btn-outline-secondary disabled">Previous</span>
+        {% endif %}
+    </div>
+    <div>
+        {% if page_obj.has_next %}
+            <a class="btn btn-outline-secondary" href="?page={{ page_obj.next_page_number }}">Next</a>
+        {% else %}
+            <span class="btn btn-outline-secondary disabled">Next</span>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+</div>
+
 {% endblock %}
+
