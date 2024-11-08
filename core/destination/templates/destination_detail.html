@@ -70,7 +70,7 @@
 
     <div class="text-center mt-4">
         <a href="{% url 'destination_list' %}" class="btn btn-secondary">
-            <i class="fas fa-arrow-left"></i> Back to Destinations
+            <i class="fas fa-arrow-left" style="text-decoration: none;"></i> Back to Destinations
         </a>
     </div>
 </div>
@@ -86,83 +86,10 @@
         </form>
     </div>
 </div>
-
-<style>
-    /* Modal overlay */
-    .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-    }
-
-    /* Modal content */
-    .modal-content {
-        background: white;
-        padding: 20px 10px;
-        border-radius: 8px;
-        width: 90%;
-        max-width: 300px;
-        text-align: center;
-        font-size: 10px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        
-    }
-    h2{
-        font-size: 20px;
-    }
-    /* Button styles */
-    .btn-danger {
-        background-color: red;
-        color: #fff;
-        border: none;
-        padding: 5px 5px;
-        border-radius: 4px;
-        cursor: pointer;
-        margin-right: 10px;
-        transition: background-color 0.2s ease;
-    }
-
-    .btn-secondary {
-        background-color: blue;
-        color: #fff;
-        border: none;
-        padding: 5px 5px;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .btn-danger:hover {
-        background-color: #c9302c;
-    }
-
-    .btn-secondary:hover {
-        background-color: blue;
-    }
-    .no-scroll {
-        overflow: hidden;
-        height: 100%; /* This ensures that the body takes up full height */
-    }
-</style>
-
-<script>
-    // Function to open the confirmation modal
-    function openModal() {
-        document.getElementById("deleteModal").style.display = "flex";
-        document.body.classList.add("no-scroll");
-    }
-
-    // Function to close the confirmation modal
-    function closeModal() {
-        document.getElementById("deleteModal").style.display = "none";
-        document.body.classList.remove("no-scroll");
-    }
-</script>
-
+{% block style %}
+<link rel="stylesheet" href="{% static "css/modal.css" %}">
+{% endblock %}
+{% block script %}
+<script src="{% static 'js/destination_deletion.js' %}"></script>
+{% endblock %}
 {% endblock %}
