@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-# Create your models here.
+# Contact model for storing user contact information
 class Contact(models.Model):
     name=models.CharField(max_length=200)
     email=models.EmailField(max_length=200)
@@ -14,7 +14,7 @@ class Contact(models.Model):
     
 
     
-    
+# UserProfile model for storing user profile details 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='user_profile')
     profile_picture = CloudinaryField('image', folder='profile_picture', blank=True, null=True)
@@ -25,7 +25,7 @@ class UserProfile(models.Model):
 
 
 
-# Create your models here.
+# Destination model to store information about travel destinations
 class Destination(models.Model):
     name = models.CharField(max_length=200)
     country = models.CharField(max_length=200)

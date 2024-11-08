@@ -1,9 +1,9 @@
 from django import forms
 from accounts.models import Destination
-# from .models import Destination
 
 
 
+# Destination Form
 class DestinationForm(forms.ModelForm):
     class Meta:
         model= Destination
@@ -16,6 +16,8 @@ class DestinationForm(forms.ModelForm):
                 'image':forms.ClearableFileInput(attrs={'class':'form-control'}),
                 'is_favorite':forms.CheckboxInput(attrs={'class':'form-check-input'})}
        
-
+# Destination Search
 class DestinationSearchForm(forms.Form):
     query = forms.CharField(required=False,label="Search Destinations")
+    
+    

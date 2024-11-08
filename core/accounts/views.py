@@ -6,12 +6,9 @@ from django.contrib import messages
 from django.contrib.auth.views import LogoutView
 from django.urls import reverse_lazy
 from .forms import ContactForm
-# from .forms import DestinationForm
-# from .models import Destination
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django import forms
-# from .forms import DestinationSearchForm
 from django.contrib.auth.decorators import login_required   
 from django.contrib.auth import update_session_auth_hash
 from .models import UserProfile
@@ -21,10 +18,11 @@ from .forms import ProfileUpdateForm,ProfileImageUpdateForm,PasswordUpdateForm
 
 
 
-# Create your views here.
+# View for rendering home page
 def index(request):
     return render(request,'index.html',{'show_services':True})
 
+# Handles user registration by rendering and processing the registration form.
 def register(request):
     if request.method=="POST":
        form = SignupForm(request.POST)
@@ -39,7 +37,7 @@ def register(request):
         
     return render(request,'register.html',{'form':form})
 
-
+# Handles user login by validating and authenticating credentials.
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -60,7 +58,7 @@ def login(request):
     # Render the login template with additional context if needed
     return render(request, 'login.html', {'show_services': False})
 
-
+# Custom Logout view that adds a success message upon logout
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('login')
     
@@ -68,7 +66,7 @@ class CustomLogoutView(LogoutView):
         messages.success(request,"You have been logged out successfully.")
         return super().dispatch(request, *args, **kwargs)
     
-    
+# Handles the contact form submission and displays success or error messages
 def contact(request):
     if request.method=="POST":
         form = ContactForm(request.POST)
@@ -84,7 +82,7 @@ def contact(request):
         
     return render(request,'contact.html',{'form':form})
     
-
+# View for rendering profile page
 @login_required
 def profile_view(request):
     try:
@@ -99,7 +97,7 @@ def profile_view(request):
 
     return render(request, 'profile.html', context)
 
-
+# View for updating profile
 @login_required
 def update_profile(request):
     if request.method == 'POST':
@@ -130,7 +128,7 @@ def update_profile(request):
                           'password_form': password_form,
                           'image_form': image_form})
     
-    
+# View for deleting profile    
 @login_required
 def delete_profile(request):
         if request.method == 'POST':

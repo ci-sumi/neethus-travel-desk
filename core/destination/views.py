@@ -9,7 +9,7 @@ from accounts.models import Destination
 
 
 
-# Create your views here.
+# Handles the search functionality and pagination for the list of destinations
 def destination_list(request):
     form = DestinationSearchForm(request.GET or None)
     query = request.GET.get('query','')
@@ -32,6 +32,7 @@ def destination_list(request):
     page_obj = paginator.get_page(page_number)
     return render(request,'destination_list.html',{'page_obj':page_obj})
 
+# Handles the creation of a new destination by the logged-in user
 @login_required
 def destination_create(request):
     if request.method=='POST':
@@ -52,11 +53,12 @@ def destination_create(request):
         form = DestinationForm()
     return render(request,'destination_form.html',{'form':form,'is_update': False })
 
-
+# Displays the details of a single destination
 def destination_detail(request,id):
     destination = get_object_or_404(Destination,id=id)
     return render(request,'destination_detail.html',{'destination':destination})
 
+# Displays the list of destinations created by the logged-in user
 @login_required
 def mydestination(request):
     destinations = Destination.objects.filter(user = request.user)
@@ -64,6 +66,7 @@ def mydestination(request):
     return render(request,'mydestination.html',{'destinations':destinations,'username': request.user.username})
 
 
+ # Allows the user to update the details of an existing destination
 def destination_update(request,destination_id):
     destination = get_object_or_404(Destination, id=destination_id)
     if request.method == 'POST':
@@ -76,7 +79,7 @@ def destination_update(request,destination_id):
         form = DestinationForm(instance=destination)
     return render(request, 'destination_form.html', {'form': form, 'is_update': True,'destination':destination})
 
-
+# Deletes a destination after user confirmation
 def destination_delete(request, destination_id):
     destination = get_object_or_404(Destination, id=destination_id)
     if request.method == 'POST':
@@ -85,7 +88,7 @@ def destination_delete(request, destination_id):
 
     return render(request,'destination_delete.html', {'destination':destination})
 
-
+# Adds or removes a destination from the logged-in user's favorites
 @login_required
 def favorite_destination(request,destination_id):
     destination = get_object_or_404(Destination, id=destination_id)
@@ -99,14 +102,19 @@ def favorite_destination(request,destination_id):
     return redirect('destination_detail', id=destination.id)
 
 
+ # Displays the list of favorite destinations for the logged-in user with pagination
 @login_required
 
 def my_favorites(request):
     favorite_destination = Destination.objects.filter(favorites=request.user)
+    paginator = Paginator(favorite_destination, 6)  # Show 6 destinations per page
+    
+    page_number = request.GET.get('page')  # Get the page number from the request
+    page_obj = paginator.get_page(page_number)  # Get the paginated items for the page
     
     return render(request,'my_favorites.html',{'favorite_destination':favorite_destination})
 
-
+ # Allows the user to like or unlike a destination
 def likes_destination(request, destination_id):
     destination =get_object_or_404(Destination,id=destination_id)
     if request.user in destination.likes.all():
@@ -116,5 +124,6 @@ def likes_destination(request, destination_id):
         destination.likes.add(request.user)
         
     return redirect('destination_detail', id=destination.id)
+
 
 
