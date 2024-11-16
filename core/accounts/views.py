@@ -13,6 +13,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from .models import UserProfile
 from .forms import ProfileUpdateForm,ProfileImageUpdateForm,PasswordUpdateForm
+from django.http import HttpResponseNotFound
+
 
 
 
@@ -138,3 +140,11 @@ def delete_profile(request):
             
         return render(request,'delete_profile.html',{'user':request.user})
             
+            
+
+
+
+
+
+def custom_404(request, exception):
+    return render(request,'404.html')

@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from .import views
 from .views import CustomLogoutView
+from django.conf.urls import handler404
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -16,3 +17,7 @@ urlpatterns = [
    
     
 ] 
+
+
+
+handler404 = 'accounts.views.custom_404'
