@@ -9,7 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #FFFFFF;
-  color: #003366; 
+  /* color: #003366;  */
 
 }
 
@@ -394,6 +394,8 @@ footer{
   text-align: center; /* Center align footer text */
   padding: 10px; /* Space inside the footer */
   font-size: 1.2rem;
+  margin-top: auto;
+
  
   }
  
@@ -523,7 +525,7 @@ footer{
 
 .navbar-toggler-icon{
 
-  border: 1px solid #FF007F; /* Pink border around the button */
+  border: 2px solid black; /* Pink border around the button */
   border-radius: 5px; /* Optional: slight rounding for a softer look */
   padding: 20px;
  
