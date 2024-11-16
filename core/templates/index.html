@@ -16,6 +16,10 @@
   <!-- Google Fonts: Lobster for a more attractive font -->
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png'%}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'image/favicon-16x16.png'%}">
+  <link rel="manifest" href="{% static 'images/site.webmanifest' %}">
 
 </head>
 
@@ -26,7 +30,15 @@
     <a class="navbar-brand" href="{% url 'index' %}">
       <h1><span style="color: purple"></span> Neethu's Travel Desk</h1>
     </a>
-    {% if user.is_authenticated %}
+    <!-- Toggle button for collapsing navbar on smaller screens -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navbar links and collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto d-flex align-items-center">
+         {% if user.is_authenticated %}
     <!-- Find Destinations Link -->
     <li class="nav-item">
       <a class="nav-link" href="{% url 'destination_list' %}">
@@ -38,17 +50,11 @@
       <a class="nav-link" href="{% url 'contact'%}">
         <i class="fa-solid fa-envelope fa-xs"></i> Contact Us</a>
     </li>
-    <!-- Toggle button for collapsing navbar on smaller screens -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <!-- Navbar links and collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto d-flex align-items-center">
+    
+    
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'destination_form'%}">
+          <a class="nav-link" href="{%url 'destination_create'%}">
             <i class="fa-solid fa-plus-circle fa-xs"></i> Destinations
           </a>
         </li>
@@ -69,10 +75,10 @@
         <li class="nav-item">
           <a class="nav-link profile-link" href="{%url 'profile_view'%}" >
             {% if user.user_profile.profile_picture%}
-            <img src="{{ user.user_profile.profile_picture.url }}" class="img-thumbnail rounded-circle" style="width: 50px; height: 50px; object-fit: cover;text-decoration: none;">{{user.username}};</a>
+            <img src="{{ user.user_profile.profile_picture.url }}" class="img-thumbnail rounded-circle" style="width: 50px; height: 50px; object-fit: cover;text-decoration: none;">{{user.username}}</a>
             {% else %}
             <a class="nav-link profile-link" href="{%url 'profile_view'%}">
-            <img src="{% static 'images/Cappadocia.jpg' %}" class="img-thumbnail rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+            <img src="{% static 'images/defaultprofile.webp' %}" class="img-thumbnail rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
             {{user.username}}
             </a>
             {% endif %}
@@ -81,7 +87,7 @@
         <li class="nav-item">
           <form action="{% url 'logout'%}" method="post">
             {% csrf_token %}
-            <button type="submit" class="btn btn-link nav-link">
+            <button type="submit" class="btn btn-link nav-link" style="background: transparent; color: inherit; border: none; text-decoration: none;">
               <i class="fa-solid fa-sign-out-alt fa-xs"></i>Logout </button>
           </form>
           {% comment %} <a class="nav-link" href="#logout">Logout</a> {% endcomment %}
@@ -124,7 +130,7 @@
       <h3>Share your dream destination with us</h3>
       {%if user.is_authenticated%}
       <a href="{%url 'mydestination' %}" class="btn"><i class="fa-solid fa-map-marker-alt fa-xs"></i> My Destinations</a>
-      <a href="{%url 'my_favorites'%}" class="btn"><i class="fa-solid fa-heart fa-xs"></i> Destinations</a>
+      <a href="{%url 'my_favorites'%}" class="btn"><i class="fa-solid fa-heart fa-xs"></i> My Favorites</a>
       {% else %}
       <a href="{% url 'login' %}" class="btn">Add Your Destinations</a>
       {% endif %}
@@ -135,7 +141,7 @@
       <div class="col-md-4">
         <div class="article">
           <img
-            src="media/destinations/tajmahal.jpg"
+            src="media/destinations/taj.webp"
             alt="tajmahal"class="img-fluid">
           <h2 class="location"><b>TAJMAHAL</b> <br /> An exquisite symbol of love</h2>
           <p class="desc">The Taj Mahal is a stunning white marble mausoleum located in Agra, India. Built by Mughal Emperor Shah Jahan in memory of his beloved wife Mumtaz Mahal, it was completed in 1653. The Taj Mahal showcases intricate architectural styles that blend Persian, Islamic, and Indian influences. Renowned for its breathtaking symmetry, lush gardens, and reflective pools, it stands as one of the most celebrated monuments in the world and is recognized as a UNESCO World Heritage Site.</p>
@@ -210,43 +216,45 @@
       </div>
     </div>
     <hr>
-</body>
+<!-- </body> -->
 {% endblock content %}
 <!-- Footer -->
-<footer class="bg-body-tertiary text-center">
+<footer class="bg-body-tertiary text-center" >
   <!-- Grid container -->
   <div class="container p-4">
     <!-- Section: Social media -->
     <section class="mb-4">
       <!-- Facebook -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"><i
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="https://www.facebook.com" role="button" style="background-color: transparent;border: 2px solid #FF007F;"><i
           class="fab fa-facebook-f"></i></a>
 
       <!-- Twitter -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"><i
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="https://twitter.com" role="button" style="background-color: transparent;border: 2px solid #FF007F;"><i
           class="fab fa-x"></i></i></a>
 
       <!-- Google -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"><i
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="https://google.com" role="button" style="background-color: transparent;border: 2px solid #FF007F;"><i
           class="fab fa-google"></i></a>
 
       <!-- Instagram -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"><i
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="https://www.instagram.com" role="button" style="background-color: transparent;border: 2px solid #FF007F;"><i
           class="fab fa-instagram"></i></a>
 
       <!-- Linkedin -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"><i
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="https://www.linkedin.com" role="button" style="background-color: transparent; border: 2px solid #FF007F;"><i
           class="fab fa-linkedin-in"></i></a>
 
       <!-- Github -->
-      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"><i
+      <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="https://github.com" role="button" style="background-color: transparent;border: 2px solid #FF007F;"><i
           class="fab fa-github"></i></a>
     </section>
     <!-- Copyright -->
     <div class="text-center">
-      <p>&copy; 2024 Layali. All rights reserved.</p>
+      <p style="color:black">&copy; 2024 Layali. All rights reserved.</p>
     </div>
-</footer>
+</footer>   
+{% block script %}
+
 <!-- jQuery for Bootstrap JavaScript components -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
   integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -255,8 +263,7 @@
   integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- Bootstrap JavaScript for interactive components -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
-</script>
-
-</html>
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha384-DyZ4PQaFjvR+p6U8EmocY5CIEfij1j7G0Yv5DBpqKJ/8gUuM0J7xkU1eWe6wV1uV" crossorigin="anonymous"></script> -->
+  {% endblock %}
+</body
