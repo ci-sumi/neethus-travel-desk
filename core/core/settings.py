@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from urllib.parse import urlparse
 import dj_database_url
 import os
 import cloudinary_storage
@@ -44,7 +45,7 @@ CLOUDINARY_STORAGE = {
 }
 print(CLOUDINARY_STORAGE)
 
-ALLOWED_HOSTS = ['https://neethu-traveldesk-dde87d094470.herokuapp.com/', 'localhost']
+ALLOWED_HOSTS = ['https://neethu-traveldesk-dde87d094470.herokuapp.com/', 'localhost','127.0.0.1']
 
 
 # Application definition
@@ -115,10 +116,17 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
+tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('JAWSDB_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': tmpPostgres.path.replace('/', ''),
+        'USER': tmpPostgres.username,
+        'PASSWORD': tmpPostgres.password,
+        'HOST': tmpPostgres.hostname,
+        'PORT': 5432,
+    }
 }
 
 
