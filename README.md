@@ -1,35 +1,3 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome,
-
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
-
-## Reminders
-
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
 
 # Neethus Travel Desk
 [![Travel Desk Logo]]
@@ -64,7 +32,7 @@ Happy coding!
 
 
 ## Introduction
-Neethu's Travel Desk is the fourth portfolio project of the Code Institute's Full Stack Web Development course. This website is a fully developed, full-stack platform built using Python 3.11.2 and Django 4.1, with a MySQL 8.0 database. The static files are hosted on Cloudinary, and the website is deployed on Heroku for easy access and management.The website is designed as a travel community platform where users can share details of their favorite travel destinations, including the best times to visit. In addition, users can calculate the estimated travel expenses for the destinations they share using the integrated Travel Budget Calculator. This feature allows users to input their travel preferences and get an approximate budget, helping them plan their trips more effectively within their financial means.The idea for this website came from my friend Neethu, who owns a travel agency. While her business is growing, Neethu wanted to create a platform where travelers could come together to share their travel experiences and get inspiration for their future trips.This website serves as a strong foundation for future enhancements. The aim is to evolve it into a fully functional travel service platform where users can not only plan their trips but also make bookings, find exclusive deals, and get personalized travel recommendations.
+Neethu's Travel Desk is the fourth portfolio project of the Code Institute's Full Stack Web Development course. This website is a fully developed, full-stack platform built using Python 3.11.2 and Django 4.2, with a MySQL 8.0 database. The static files are hosted on Cloudinary, and the website is deployed on Heroku for easy access and management.The website is designed as a travel community platform where users can share details of their favorite travel destinations, including the best times to visit. In addition, users can calculate the estimated travel expenses for the destinations they share using the integrated Travel Budget Calculator. This feature allows users to input their travel preferences and get an approximate budget, helping them plan their trips more effectively within their financial means.The idea for this website came from my friend Neethu, who owns a travel agency. While her business is growing, Neethu wanted to create a platform where travelers could come together to share their travel experiences and get inspiration for their future trips.This website serves as a strong foundation for future enhancements. The aim is to evolve it into a fully functional travel service platform where users can not only plan their trips but also make bookings, find exclusive deals, and get personalized travel recommendations.
 
 ## User Stories
 1. As a ***new user***, I want to ***register for an account on the "Neethu's Travel Desk" website***, so that I can ***access the platform with username or email,and password***.
@@ -147,11 +115,11 @@ Neethu's Travel Desk is the fourth portfolio project of the Code Institute's Ful
 | Contact the administrator     |                                           |
 
 ##### Importance/Viability Tables
-![User Management](docs/images/vt_user_management.png)
+![User Management](core/docs/images/vt_user_management.png)
 
-![Destination Management](./docs/images/vt_books_management.png)
+![Destination Management](core/docs/images/vt_destination_management.png)
 
-![Other Features](./docs/images/vt_other_features.png)
+![Other Features](core/docs/images/vt_other_features.png)
 
 [Back to top ⇧](#table-of-contents)
 
@@ -236,7 +204,7 @@ The user will be able to:
   - The interface will prioritize clarity, simplicity, and responsiveness.
   - A cohesive design will be maintained with consistent color schemes, typography, and layout across desktop, tablet, and mobile devices.
   **Information Architecture and Navigation**
-  ![Information Architecture and Navigation 1](./docs/images/diagram_1.jpg)
+  ![Information Architecture and Navigation 1](core/docs/images/doc1.png)
 
   [Back to top ⇧]
 #### SKELETON
@@ -252,6 +220,7 @@ Profile Page: Displays user-specific information and settings.
 - - Favourites Page: Showcases a user’s marked favourite destinations.
 - - User Shared Destinations Page: Lists all destinations added by the user.
 - - Contact Page: Provides a form for users to contact the site administrator.
+[Link to Wireframes](core/docs/wireframes/neethus_traveldesk.pdf)
 
 #### SURFACE
 ##### Colour Scheme
@@ -275,6 +244,13 @@ All fonts are sourced from Google Fonts.[Google Fonts](https://fonts.google.com/
 The images used on the website were sourced from Unsplash, a platform offering high-quality, free-to-use images. Additionally, some images were obtained from Google Images for specific content. For more detailed attribution, please refer to the Credits section.
 ##### Branding
 A simple yet stylish logo was created to reflect the essence of "Neethu's Travel Desk." The logo is designed with a focus on sleek, modern typography that is easy to remember and recognize, representing the brand name, "Neethu's Travel Desk." The logo was crafted using favicon.io, an online logo and favicon generator.
+[Back to top ⇧](#table-of-contents)
+##### Prototypes
+Given the time constraints, the website was not prototyped. The website was built using the wireframes as a guide.
+
+##### Feedback and Iteration
+Generally, the developer relied on the feedback from the mentor and the peer-code review to improve the website. The developer also relied on the feedback from some other users to improve the website. The constant changing of the website functionalities and design was a result of the feedback received.
+
 [Back to top ⇧](#table-of-contents)
 
 ## Accessibility
