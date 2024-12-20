@@ -45,7 +45,7 @@ CLOUDINARY_STORAGE = {
 }
 print(CLOUDINARY_STORAGE)
 
-ALLOWED_HOSTS = ['https://neethu-traveldesk-dde87d094470.herokuapp.com/', 'localhost','127.0.0.1']
+ALLOWED_HOSTS = ['https://neethu-traveldesk-dde87d094470.herokuapp.com', 'localhost','127.0.0.1']
 
 
 # Application definition
