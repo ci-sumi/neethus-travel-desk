@@ -1,6 +1,6 @@
 
 # Neethus Travel Desk
-[![Travel Desk Logo]]
+[![Travel Desk Logo]](core/static/images/android-chrome-192x192.png)(https://neethus-travel-c40ea47fdf43.herokuapp.com/)
 
 [![Am I Responsive]]
 
