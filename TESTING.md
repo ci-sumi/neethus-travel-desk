@@ -201,3 +201,23 @@ Users should receive an error message if there are any issues with their submiss
 - [x] The like button should be accessible to registered users when they are logged in.
 
 [Back to top ⇧](#table-of-contents)
+
+### Manual Testing
+#### Common Elements Testing
+Manual testing was conducted on the following elements that appear on every page:
+
+- Navbar
+
+![Navbar Test](core/docs/images/manual_testing/nav_bar.png)
+![Navbar Test](core/docs/images/manual_testing/nav_bar1.png)
+
+- Footer
+
+![Navbar Test](core/docs/images/manual_testing/footer.png)
+![Navbar Test](core/docs/images/manual_testing/facebook.png)
+![Navbar Test](core/docs/images/manual_testing/google.png)
+![Navbar Test](core/docs/images/manual_testing/insta.png)
+![Navbar Test](core/docs/images/manual_testing/meta.png)
+![Navbar Test](core/docs/images/manual_testing/linkedin.png)
+![Navbar Test](core/docs/images/manual_testing/github.png)
+
