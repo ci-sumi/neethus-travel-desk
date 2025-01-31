@@ -378,6 +378,33 @@ Re-deploy the Application:
 
 If the issue is related to deployment, re-deploy the application to Heroku after ensuring that all migrations are applied and static files are collected.
 
+[Back to top ⇧](#table-of-contents)
+
+#### CSS Validation
+The [CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used for `CSS` code.
+
+These are the results of the validation:
+- Homepage CSS File
+![Home page css valdation](core/docs/images/html_css_validation/home_page_css.png)
+
+- General CSS File
+![General css valdation](core/docs/images/html_css_validation/style_css.png)
+![General css valdation](core/docs/images/html_css_validation/modal_css.png)
+
+The [JSHint JavaScript Code Quality Tool](https://jshint.com/) was used to validate the sites `JS` code.
+
+- Budget Calculator JS File
+![Budget Calculator JS Validation](core/docs/images/js_validation/budget_calculator_js_validation.png)
+
+- Destination Deletion JS File
+![Destination Deletion JS Validation](core/docs/images/js_validation/destination_delete_js_validation.png)
+
+- Profile Deletion JS File
+![Destination Deletion JS Validation](core/docs/images/js_validation/profile_delete_js_validation.png)
+
+
+
+
 
 
 
