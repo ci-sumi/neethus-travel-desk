@@ -221,3 +221,171 @@ Manual testing was conducted on the following elements that appear on every page
 ![Navbar Test](core/docs/images/manual_testing/linkedin.png)
 ![Navbar Test](core/docs/images/manual_testing/github.png)
 
+- Favicon
+![Navbar Test](core/docs/images/manual_testing/favicon.png)
+
+
+#### Functionalities testing
+- Login
+![Login Test](core/docs/images/manual_testing/login.png)
+
+- Register
+![Register Test](core/docs/images/manual_testing/register.png)
+![Register Test](core/docs/images/manual_testing/register_error.png)
+
+- Logout
+![Logout Test](core/docs/images/manual_testing/logout.png)
+
+- Profile Update
+![Profile Test](core/docs/images/manual_testing/profile_update.png)
+
+- Add Destination
+![Add Destination Test](core/docs/images/manual_testing/add_destination.png)
+
+- Edit Destination
+![Edit Destination Test](core/docs/images/manual_testing/edit_destination.png)
+
+- Delete Destination
+![Edit Destination Test](core/docs/images/manual_testing/delete_destination.png)
+
+- Search Destination
+![Search Destination Test](core/docs/images/manual_testing/search_destination.png)
+
+- Destination Details
+![Destination Details Test](core/docs/images/manual_testing/destination_details.png)
+
+- Favourites Destination
+
+![Favourites Destination](core/docs/images/manual_testing/favourites_destinations.png)
+
+- Contact Page
+![Contact Page](core/docs/images/manual_testing/contact_page.png)
+
+## Automated Testing
+### Code Validation
+#### HTML Validation
+The [W3C Markup Validator](https://validator.w3.org/) service was used to validate the `HTML`.
+
+These are the results of the validation:
+- Homepage
+![Home Page Validation](core/docs/images/html_css_validation/index_html.png)
+
+- Login page
+![Login Page Validation](core/docs/images/html_css_validation/login_html.png)
+
+- Register page
+![Register Page Validation](core/docs/images/html_css_validation/register_html.png)
+
+
+- Contact page
+![Register Page Validation](core/docs/images/html_css_validation/contact_html.png)
+
+
+- Popular Destinations page
+![Popular Destinations page valdation](core/docs/images/html_css_validation/popular_destinations_html.png)
+
+- Budget Calculator
+![Budget Calculator page valdation](core/docs/images/html_css_validation/budget_calculator_html.png)
+
+- View Detail Destination 
+![View Detail Destination page valdation](core/docs/images/html_css_validation/view_details_destination_html.png)
+
+- Profile View Validation
+![Profile View page valdation](core/docs/images/html_css_validation/profile_view_html_IOError.png)
+
+
+
+### Explanation of the Issue
+While testing and validating my HTML pages, I encountered an IO Error: HTTP resource not retrievable. The error message indicated that the remote server returned an HTTP status of 404 (Not Found) for the following URL:
+
+
+https://neethus-travel-c40ea47fdf43.herokuapp.com/accounts/profile_view
+
+https://neethus-travel-c40ea47fdf43.herokuapp.com/accounts/update_profile
+
+https://neethus-travel-c40ea47fdf43.herokuapp.com/destination/destination/create/
+
+https://neethus-travel-c40ea47fdf43.herokuapp.com/destination/my-destinations/
+
+https://neethus-travel-c40ea47fdf43.herokuapp.com/destination/my-favorites/
+After investigating the issue
+I identified the root cause and potential reasons for this error. Here’s a summary of my findings:
+
+Root Cause
+The 404 Not Found error occurs when the requested resource  does not exist on the server. This can happen due to one or more of the following reasons:
+
+Missing URL Configuration:
+
+The URL pattern for /accounts/profile_view is not defined in the Django urls.py file.
+
+If the URL pattern is missing, Django cannot route the request to the appropriate view, resulting in a 404 error.
+
+Incorrect URL Pattern:
+
+The URL pattern for the profile_view might be defined incorrectly, causing Django to fail to match the requested URL.
+
+View Not Implemented:
+
+The profile_view function or class-based view might not be implemented in the views.py file, even if the URL pattern is defined.
+
+Authentication Issues:
+
+If the profile_view is protected by the @login_required decorator and the user is not authenticated, Django will redirect the request to the login page (/accounts/login/). If the login URL is not properly configured, this can also result in a 404 error.
+
+Deployment Issues:
+
+If the application is deployed on Heroku, there might be issues with the deployment process, such as missing migrations, incorrect environment variables, or static files not being collected.
+
+Steps Taken to Investigate
+To diagnose the issue, I performed the following steps:
+
+Checked the URL Configuration:
+
+Verified that the URL patterns are correctly defined in the urls.py file.
+
+Reviewed the View Implementation:
+
+Ensured that the profile_view function or class-based view is implemented in the views.py file.
+
+Tested Locally:
+
+Ran the application locally using the Django development server to confirm that the URLs works as expected.
+
+Checked Authentication:
+
+Verified that the @login_required decorator is correctly applied that the login URL is properly configured.
+
+Reviewed Deployment Logs:
+
+Checked the Heroku logs for any errors or warnings related to the deployment process.
+
+Possible Solutions
+Based on my investigation, here are the steps I plan to take to resolve the issue:
+
+Define the Missing URL:
+
+Add the URL pattern for  in the urls.py file if it is missing.
+
+Implement the View:
+
+Ensure that the profile_view function or class-based view is correctly implemented in the views.py file.
+
+Fix Authentication Issues:
+
+If the views are protected by the @login_required decorator, ensure that the login URL is properly configured and that users are redirected correctly.
+
+Re-deploy the Application:
+
+If the issue is related to deployment, re-deploy the application to Heroku after ensuring that all migrations are applied and static files are collected.
+
+
+
+
+
+
+
+
+
+
+
+
