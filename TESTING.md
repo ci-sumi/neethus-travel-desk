@@ -218,8 +218,6 @@ Manual testing was conducted on the following elements that appear on every page
 ![Navbar Test](core/docs/images/manual_testing/google.png)
 ![Navbar Test](core/docs/images/manual_testing/insta.png)
 ![Navbar Test](core/docs/images/manual_testing/meta.png)
-![Navbar Test](core/docs/images/manual_testing/linkedin.png)
-![Navbar Test](core/docs/images/manual_testing/github.png)
 
 - Favicon
 ![Navbar Test](core/docs/images/manual_testing/favicon.png)
@@ -401,6 +399,41 @@ The [JSHint JavaScript Code Quality Tool](https://jshint.com/) was used to valid
 
 - Profile Deletion JS File
 ![Destination Deletion JS Validation](core/docs/images/js_validation/profile_delete_js_validation.png)
+
+
+#### Python Validation
+For Python code, the [CI PEP8 online validator](https://pep8ci.herokuapp.com/) was used to validate the code.
+![Destination Deletion JS Validation](core/docs/images/python_validation/settings_py_validation.png)
+
+
+[Back to top ⇧](#table-of-contents)
+
+### Lighthouse Validation
+The [Lighthouse](https://developers.google.com/web/tools/lighthouse) tool was used to measure the performance of the website.
+
+These are the results of the validation:
+![AddDestination](core/docs/images/light_house/Add_destination_light_house.png)
+
+![Budgetcalculator](core/docs/images/light_house/budget_calculator_light_house.png)
+
+![Contact](core/docs/images/light_house/contact_light_house.png)
+
+![DestinationDetail](core/docs/images/light_house/destination_details_light_house.png)
+
+![HomePage](core/docs/images/light_house/home_page_light_house.png)
+
+![UserHomePage](core/docs/images/light_house/logger_user_home_light_house.png)
+
+![Login](core/docs/images/light_house/login_light_house.png)
+
+![PopularDestinations](core/docs/images/light_house/popular_destination_light_house.png)
+
+![ProfileView](core/docs/images/light_house/profile_view_light_house.png)
+
+
+
+
+
 
 
 
