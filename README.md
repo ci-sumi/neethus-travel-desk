@@ -1,8 +1,22 @@
 
 # Neethus Travel Desk
-[![Travel Desk Logo]](core/static/images/android-chrome-192x192.png)(https://neethus-travel-c40ea47fdf43.herokuapp.com/)
+[![Travel Desk Logo](core/static/images/android-chrome-192x192.png)](https://neethus-travel-c40ea47fdf43.herokuapp.com/)
 
-[![Am I Responsive]]
+![Am I Responsive](core/docs/images/amiresponsive.png)
+
+***Important Note***
+This project was initially structured in a way that caused errors during deployment, particularly on Heroku. Due to these issues, the original deployment on Heroku resulted in an Application Error.![Application Error](core/docs/images/Application_issue_log.png). After troubleshooting, it was determined that the project structure needed to be reorganized for better compatibility with deployment platforms.
+
+To address this, the entire project has been restructured and redeployed successfully on Heroku using a new GitHub repository.https://github.com/ci-sumi/test-deploy-neethu-s-travel-desk.
+
+For project validation and reference:
+1. This Repository (Old):
+This repository is retained specifically for the README file and historical reference. It contains the original project structure, which is not recommended for deployment.
+Current GitHub Repository (https://github.com/ci-sumi/neethus-travel-desk).
+2. New Repository (Updated and Functional):
+The updated and corrected version of the project, which is fully functional and deployment-ready, is hosted in a new GitHub repository.[New GitHub Project Link.](https://github.com/ci-sumi/test-deploy-neethu-s-travel-desk.)
+
+
 
 ## Table of Contents
 
@@ -245,6 +259,7 @@ The images used on the website were sourced from Unsplash, a platform offering h
 ##### Branding
 A simple yet stylish logo was created to reflect the essence of "Neethu's Travel Desk." The logo is designed with a focus on sleek, modern typography that is easy to remember and recognize, representing the brand name, "Neethu's Travel Desk." The logo was crafted using favicon.io, an online logo and favicon generator.
 [Back to top ⇧](#table-of-contents)
+##### Wireframes
 ##### Prototypes
 Given the time constraints, the website was not prototyped. The website was built using the wireframes as a guide.
 
@@ -358,86 +373,96 @@ Pagination: Pagination is an important feature for improving the performance and
 [Back to top ⇧](#table-of-contents)
 
 ## Issues and Bugs
+- *Directory Structure*
+    - **Issue:** The directory structure is not the best. The developer tried to make it as logical as possible, but there's a lot of room for improvement. The templates in the authors app are not following the ideal structure (/templates/app-name/...). Unfortunatelly, the developer realised that too late and didn't want to compromise the functionality of the website by changing the structure.
+- *Application Error*
+   This project was initially structured in a way that caused errors during deployment, particularly on Heroku. Due to these issues, the original deployment on Heroku resulted in an Application Error.![Application Error](core/docs/images/Application_issue_log.png)
+   After troubleshooting, it was determined that the project structure needed to be reorganized for better compatibility with deployment platforms.
+ * Bug: Profile Update and Password Change Functionality
+
+   * The profile update and password change functionality is not working as expected.
+
+
 
 [Back to top ⇧](#table-of-contents)
 
-Technologies Used
-Main Languages Used
-HTML5
-The website is built using HTML5 to structure its content and ensure semantic markup.
-CSS3
-CSS3 is used for styling the website, including layout, colors, and animations.
-JavaScript
-JavaScript adds interactivity and dynamic behavior to the website, enhancing user experience.
-Python
-Python is utilized for developing the backend of the website, handling server-side logic and interactions.
-Frameworks, Libraries & Tools Used
-Front-End
-Bootstrap 5
-Bootstrap 5 helps streamline the development of responsive layouts, providing a grid system and ready-made UI components.
-Google Fonts
-The website uses Google Fonts to style text, specifically the fonts "Montserrat Alternates," "Roboto Serif," and "Mooli".
-Font Awesome
-Font Awesome is used to incorporate icons throughout the site, enhancing visual appeal and usability.
-Back-End
-Django
-The website’s backend is built using Django, a high-level Python web framework, for handling server-side functionality and database interactions.
-pip3
-pip3 is the Python package manager used to install necessary libraries and dependencies.
-MySQL
-MySQL serves as the website’s database, providing a reliable and scalable system for data storage.
-MySQL Workbench
-MySQL Workbench is used for managing and interacting with the MySQL database during development.
-Heroku
-Heroku is used for deploying the website, offering cloud infrastructure to run the project in a production environment.
-Cloudinary
-Cloudinary is employed for image storage, providing a reliable and scalable solution for handling media.
-Summernote
-Summernote is integrated for a rich text editor, though its implementation is still in progress.
-gunicorn
-Gunicorn is used as the WSGI HTTP server to run the website on Heroku.
-dj_database_url
-dj_database_url is used to easily configure the database connection on Heroku.
-mysqlclient
-mysqlclient is the Python library used to connect Django with the MySQL database.
-python-dotenv
-python-dotenv is used to load environment variables from a .env file, helping to securely manage sensitive information.
-Other Tools
-EmailJS
-EmailJS powers the contact form by enabling email sending directly from JavaScript.
-Git
-Git is used for version control to track changes in the codebase throughout development.
-GitHub
-The project repository is hosted on GitHub, where the code is stored and managed.
-GitHub Projects
-GitHub Projects was used to organize and track tasks during development, including bug fixes and feature implementation.
-Balsamiq
-Balsamiq was used for creating wireframes during the design phase to plan the layout and flow of the website.
-QuickDBD
-QuickDBD was used to design the database schema visually before implementation.
-Am I Responsive
-Am I Responsive was used to generate a responsive mockup image for the website.
-Lighthouse
-Lighthouse was used to analyze the website for performance, accessibility, and SEO issues.
-W3C Validation Services, CSS Validator, JSHint, CI Python Linter
-These services were used to ensure clean, valid, and optimized code for HTML, CSS, JavaScript, and Python.
-Favicon.io
-Favicon.io was used to create the website’s custom favicon.
-GitPod, Visual Studio Code
-GitPod and Visual Studio Code were used as Integrated Development Environments (IDEs) during different stages of development.
-Chrome DevTools
-Chrome DevTools was used for real-time testing and debugging during development.
-Google Chrome, Mozilla Firefox, Microsoft Edge
-These browsers were used to test and debug the website across different environments.
-Canva Color Palette Generator
-Canva was used to generate the initial color palette for the website's design.
-WebP Converter
-WebP Converter was used to convert images into the WebP format for better performance and smaller file sizes.
-GIMP, Gnome-screenshot, Peek
-GIMP was used to edit and resize images. Gnome-screenshot and Peek were used to capture images and record the website in action for documentation purposes.
+## Technologies Used
+### Main Languages Used
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+   - The website is built using HTML5 to structure its content and ensure semantic markup.
+
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+    - The project uses **CSS3** to style the content of the website.
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+    - The project uses **JavaScript** to add interactivity to the website.
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+    - The project uses **Python** to create the backend of the website.
+
+### Frameworks, Libraries & Programs Used
+#### Front-End
+- [Bootstrap 5](https://getbootstrap.com/)
+    - The project uses **Bootstrap 5** to simplify the structure of the website and make the website responsive easily.
+- [Google Fonts](https://fonts.google.com/)
+    - The project uses **Google Fonts** to style the fonts of the website. The fonts used are "Montserrat Alternates", "Roboto Serif", and "Mooli".
+- [Font Awesome](https://fontawesome.com/)
+    - The project uses **Font Awesome** to add icons to the website.
+
+#### Back-End
+- [Django](https://www.djangoproject.com/)
+- The project uses **Django** to create the backend of the website.
+- [pip3 (Python Package Installer)](https://pip.pypa.io/en/stable/) 
+    - The project uses **pip3** to install the necessary tools and libraries.
+- [PostgreSQL](https://www.postgresql.org/)
+    - **PostgreSQL** to create the database of the website.
+- [ElephantSQL](https://www.elephantsql.com/)
+    - **ElephantSQL** for hosting of the database of the website.
+- [Heroku](https://www.heroku.com/)
+    - **Heroku** for the website deployment.
+- [Cloudinary](https://cloudinary.com/)
+    - The project uses **Cloudinary** to store the images of the website.
+- [Summernote](https://summernote.org/)
+    - The project uses **Summernote** to create a rich text editor for the website. Although, this functionality wasn't entirely implemented in the final version of the website.
+- [gunicorn](https://pypi.org/project/gunicorn/)
+    - The project uses Python **gunicorn** library to run the website on Heroku.
+- [dj_database_url](https://pypi.org/project/dj-database-url/)
+    - The project uses Python **dj_database_url** library to connect to the database on Heroku.
+- [psycopg2](https://pypi.org/project/psycopg2/)
+    - The project uses Python **psycopg2** library to connect to the database on Heroku.
+- [python-dotenv](https://pypi.org/project/python-dotenv/)
+    - The project uses **python-dotenv** library to hide sensitive information.
+
+- [EmailJS](https://www.emailjs.com/)
+    - EmailJS JavaScript library was used to create a functional contact form.
+
+#### Other
+- [Git](https://git-scm.com/) for version control.
+- [GitHub](https://github.com/) for storing the repository online during development.
+- GitHub Projects was used throughout the project for tracking of things to do and bug fixing - [the project's board here](https://github.com/users/tomdu3/projects/4).
+- [Balsamiq](https://balsamiq.com/) to create the wireframes during the design process.
+- [QuickDBD](https://www.quickdatabasediagrams.com/) to create the database design.
+- [Am I Responsive](http://ami.responsivedesign.is/) to create the mockup image at the beginning of this file.
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse) to check the website for accessibility issues.
+- [W3C Markup Validation Service](https://validator.w3.org/) to check the HTML code.
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) to check the CSS code.
+- [JSHint](https://jshint.com/) to check the JavaScript code.
+- [CI Python Linter](https://pep8ci.herokuapp.com/) to check the Python code.
+- [Favicon.io](https://favicon.io/) to create the favicon.
+- [GitPod](https://gitpod.io/) as a cloud based IDE (only at the early stage of the development).
+- [Visual Studio Code](https://code.visualstudio.com/) as a local IDE.
+- [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) for testing and debugging.
+- [Google Chrome](https://www.google.com/chrome/) for testing and debugging.
+- [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/) for testing and debugging.
+- [Microsoft Edge](https://www.microsoft.com/en-us/edge) for testing and debugging.
+- [Canva Color Palette Generator](https://www.canva.com/colors/color-palette-generator/)
+	- Canva Color Palette Generator was used to make the initial colour palette.
+- [Webp Converter](https://developers.google.com/speed/webp)
+	 - Webp Converter was used to convert images to WEBP format on Linux.
+
+[Back to top ⇧](#table-of-contents)
+
 ## Testing
 For Testing details go to a separated file [TESTING.md](TESTING.md)
-## Deployment
+## Deployement
 ### Local Deployment
 
 In order to make a local copy of this project, you can clone it. In your IDE Terminal, type the following command to clone the repository:
@@ -556,15 +581,26 @@ Under Deployment Method, choose GitHub and search for your repository and click 
 ### Forking the GitHub Repository
 The project can be forked in order to make a copy of the original repository and propose changes to the project owner using Pull Requests.
 That can be done by following these steps:
-First, log in to GitHub and locate the [Project's Repository](github.com/tomdu3/books-for-life).
+First, log in to GitHub and locate the [Project's Repository](https://github.com/ci-sumi/neethus-travel-desk).
 At the top of the Repository, on the right side of the page, locate the "Fork" button.
 A copy of the Repository should now be in your GitHub account.
 You can now propose changes to the Repository by creating a Pull Request.
 
 ### Live deployment
-The web site is deployed on Heroku and can be found [here](https://books-4-life-2d26bdf04dec.herokuapp.com/).
+The web site is deployed on Heroku and can be found [here](https://neethus-travel-c40ea47fdf43.herokuapp.com/).
 
 
 [Back to top ⇧](#table-of-contents)
 ## Credits
 ### Code
+ The  developer relied on Code Institute's course material,
+the [stackoverflow](https://stackoverflow.com/), [Django documentation](https://docs.djangoproject.com/en/3.2/), and John Elder's [Codemy](https://codemy.com/).
+### Media
+- The images used in the website were obtained from [Unsplash](https://unsplash.com/).
+- The site logo was created using [favicon.io](https://favicon.io/).
+- The mockup image at the beginning of this file was created using [Am I Responsive](http://ami.responsivedesign.is/).
+### Content
+- The content of the website was written by the developer.
+
+### Acknowledgements
+This project would not have been possible without the support, guidance, and encouragement of Tomislav Dukez (Alumni-Code Institue) I sincerely express my heartfelt gratitude to him.
