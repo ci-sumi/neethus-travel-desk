@@ -305,10 +305,14 @@ The website adheres to recognized accessibility standards to ensure a seamless e
 
 ## Database Design
 The database design was created using QuickDBD. The database is hosted on MySQL.
+![DatabaseDesign](core/docs/images/database.png)
+
 
 The database design for Neethu's Travel Desk was created using Django models. The models are structured to manage user data, destinations, budget calculations, and contact information efficiently. Here's an overview of the models:
 
-- ** Contact Model **
+
+
+- **Contact Model**
 The Contact model is used to store contact information submitted by users. It includes the user's name, email, phone number, and their message. Additionally, the time_stamp field records when the contact was created.
 
 Fields: name, email, phone_number, contact_message, time_stamp.
