@@ -235,18 +235,18 @@ The user will be able to:
 [Back to top ⇧](#table-of-contents)
 
 #### STRUCTURE
-- *** Interaction Design: ***
+- **Interaction Design:**
   Users will interact with the website using common devices like a mouse, keyboard, and touchscreens. Input forms and buttons will provide clear feedback for user actions.
-- *** Information Architecture: ***
+- **Information Architecture:**
   The website will be organized into intuitive categories, including Home, Explore Destinations, Add Destination, Budget Planner, Profile, and Favorites.
   The most important information, such as shared destinations and budget tools, will be prominently displayed for easy access.
-- *** Navigation: ***
+- **Navigation:**
   - A consistent navigation bar will be available across all pages, featuring links to Home, Destinations, Add Destination, Budget Planner, Profile, and Logout (for logged-in users).
   - The design will ensure accessibility and responsiveness across different screen sizes.
-- *** Information Design ***
+- **Information Design**
   - Destination details and user-generated content will be displayed in an engaging and visually appealing manner, with clear labels, images, and organized layouts.
   - Important features like the budget calculator will use simple forms and clear instructions for usability.
-- **** Interface Design: ***
+- **Interface Design: ***
   - The interface will prioritize clarity, simplicity, and responsiveness.
   - A cohesive design will be maintained with consistent color schemes, typography, and layout across desktop, tablet, and mobile devices.
   **Information Architecture and Navigation**
@@ -316,17 +316,17 @@ The database design for Neethu's Travel Desk was created using Django models. Th
 The Contact model is used to store contact information submitted by users. It includes the user's name, email, phone number, and their message. Additionally, the time_stamp field records when the contact was created.
 
 Fields: name, email, phone_number, contact_message, time_stamp.
-UserProfile Model:
+-**UserProfile Model:**
 The UserProfile model extends the default Django User model and stores additional user profile details such as their profile picture. This model allows a user to have a personalized profile image.
 
 Fields: user (OneToOne relationship with Django's User model), profile_picture.
-Destination Model:
+-**Destination Model:**
 The Destination model stores information about various travel destinations. Each destination includes details such as the destination name, country, a short description, the best season to visit, budget type, an image, and favorite/like features. The model also allows users to mark destinations as favorites or liked.
 
 Fields: name, country, description, best_time_to_visit, budget_type, image, is_favorite, user, favorites, likes.
 The model includes a method total_likes to calculate the total number of likes for each destination.
 
-BudgetCalculator Model:
+-**BudgetCalculator Model:**
 The BudgetCalculator model allows users to calculate the estimated cost of a trip based on various inputs, such as accommodation cost, transportation cost, food cost, activity cost, and the number of adults and infants traveling. The model calculates the total cost based on these values.
 
 Fields: destination (ForeignKey to Destination), accommodation_cost, transportation_cost, food_cost, activity_cost, number_of_adults, number_of_infants.
