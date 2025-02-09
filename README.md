@@ -255,17 +255,17 @@ The user will be able to:
   [Back to top ⇧]
 #### SKELETON
 - **Wireframes:** The wireframes for the website were designed using Balsamiq to outline the layout and functionality across various devices, including desktop, tablet, and mobile. These wireframes provide a visual representation of the following key pages:
-- - Home Page: The main landing page for users.
-- - Register Page: Where new users can create an account.
-- - Login Page: For existing users to access their account.
+- Home Page: The main landing page for users.
+- Register Page: Where new users can create an account.
+- Login Page: For existing users to access their account.
 Profile Page: Displays user-specific information and settings.
-- - Add Destination Page: Allows users to share a new travel destination.
-- - Edit Destination Page: Enables users to modify their shared destination details.
-- - Delete Destination Page: For users to remove their shared destinations.
-- - Destination Details Page: Displays detailed information about a specific destination.
-- - Favourites Page: Showcases a user’s marked favourite destinations.
-- - User Shared Destinations Page: Lists all destinations added by the user.
-- - Contact Page: Provides a form for users to contact the site administrator.
+-  Add Destination Page: Allows users to share a new travel destination.
+- Edit Destination Page: Enables users to modify their shared destination details.
+-  Delete Destination Page: For users to remove their shared destinations.
+-  Destination Details Page: Displays detailed information about a specific destination.
+-  Favourites Page: Showcases a user’s marked favourite destinations.
+-  User Shared Destinations Page: Lists all destinations added by the user.
+-  Contact Page: Provides a form for users to contact the site administrator.
 [Link to Wireframes](core/docs/wireframes/neethus_traveldesk.pdf)
 
 #### SURFACE
