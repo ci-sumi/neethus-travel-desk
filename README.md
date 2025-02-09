@@ -246,13 +246,13 @@ The user will be able to:
 - **Information Design**
   - Destination details and user-generated content will be displayed in an engaging and visually appealing manner, with clear labels, images, and organized layouts.
   - Important features like the budget calculator will use simple forms and clear instructions for usability.
-- **Interface Design: ***
+- **Interface Design:**
   - The interface will prioritize clarity, simplicity, and responsiveness.
   - A cohesive design will be maintained with consistent color schemes, typography, and layout across desktop, tablet, and mobile devices.
   **Information Architecture and Navigation**
   ![Information Architecture and Navigation 1](core/docs/images/doc1.png)
 
-  [Back to top ⇧]
+[Back to top ⇧](#table-of-contents)
 #### SKELETON
 - **Wireframes:** The wireframes for the website were designed using Balsamiq to outline the layout and functionality across various devices, including desktop, tablet, and mobile. These wireframes provide a visual representation of the following key pages:
 - Home Page: The main landing page for users.
@@ -273,9 +273,9 @@ Profile Page: Displays user-specific information and settings.
 
 The color scheme for Neethu's Travel Desk was inspired by a Cornflower Palette, combining soft and vibrant tones that align with the themes of travel and exploration. The following colors were used consistently across the website:
 
-- - Cornflower (#8dcfec) – Evoking a sense of calm and trust, used in backgrounds and sections.
-- - Rose (#ef0673) – Adding energy and vibrancy, applied to buttons and key highlights.
-- - Ebony (#090d17) – Representing elegance and strength, used for primary text and contrasting elements.
+- Cornflower (#8dcfec) – Evoking a sense of calm and trust, used in backgrounds and sections.
+- Rose (#ef0673) – Adding energy and vibrancy, applied to buttons and key highlights.
+- Ebony (#090d17) – Representing elegance and strength, used for primary text and contrasting elements.
 This palette ensures the website remains visually appealing and cohesive while enhancing readability and accessibility. Standard Bootstrap colors were also incorporated to ensure compatibility and consistency with the framework.
 
 
@@ -315,18 +315,20 @@ The database design for Neethu's Travel Desk was created using Django models. Th
 - **Contact Model**
 The Contact model is used to store contact information submitted by users. It includes the user's name, email, phone number, and their message. Additionally, the time_stamp field records when the contact was created.
 
-Fields: name, email, phone_number, contact_message, time_stamp.
--**UserProfile Model:**
+  Fields: name, email, phone_number, contact_message, time_stamp.
+
+- **UserProfile Model:**
 The UserProfile model extends the default Django User model and stores additional user profile details such as their profile picture. This model allows a user to have a personalized profile image.
 
 Fields: user (OneToOne relationship with Django's User model), profile_picture.
--**Destination Model:**
+
+- **Destination Model:**
 The Destination model stores information about various travel destinations. Each destination includes details such as the destination name, country, a short description, the best season to visit, budget type, an image, and favorite/like features. The model also allows users to mark destinations as favorites or liked.
 
 Fields: name, country, description, best_time_to_visit, budget_type, image, is_favorite, user, favorites, likes.
 The model includes a method total_likes to calculate the total number of likes for each destination.
 
--**BudgetCalculator Model:**
+- **BudgetCalculator Model:**
 The BudgetCalculator model allows users to calculate the estimated cost of a trip based on various inputs, such as accommodation cost, transportation cost, food cost, activity cost, and the number of adults and infants traveling. The model calculates the total cost based on these values.
 
 Fields: destination (ForeignKey to Destination), accommodation_cost, transportation_cost, food_cost, activity_cost, number_of_adults, number_of_infants.
@@ -337,6 +339,7 @@ UserProfile has a OneToOne relationship with the User model to extend user infor
 Destination has a ForeignKey relationship to the User model, representing the user who created the destination listing.
 Destination uses ManyToMany relationships with the User model for users' favorites and likes of destinations.
 BudgetCalculator is linked to Destination via a ForeignKey, and calculates the total cost based on inputs.
+
 [Back to top ⇧](#table-of-contents)
 ## Features 
 ### Existing Features
@@ -450,8 +453,8 @@ Pagination: Pagination is an important feature for improving the performance and
     - The project uses **pip3** to install the necessary tools and libraries.
 - [PostgreSQL](https://www.postgresql.org/)
     - **PostgreSQL** to create the database of the website.
-- [ElephantSQL](https://www.elephantsql.com/)
-    - **ElephantSQL** for hosting of the database of the website.
+- [NeonTech](https://neon.tech/?gad_source=1&gclid=CjwKCAiAwaG9BhAREiwAdhv6Y3ZnpHPX6Ns7ls4H53Gb7GVWcPy4gxufW06qt1Ss1Cc8ipJFURDwpxoClBkQAvD_BwE)
+    - **NeonTech** for hosting of the database of the website.
 - [Heroku](https://www.heroku.com/)
     - **Heroku** for the website deployment.
 - [Cloudinary](https://cloudinary.com/)
@@ -631,6 +634,7 @@ The web site is deployed on Heroku and can be found [here](https://neethus-trave
 ### Code
  The  developer relied on Code Institute's course material,
 the [stackoverflow](https://stackoverflow.com/), [Django documentation](https://docs.djangoproject.com/en/3.2/), and John Elder's [Codemy](https://codemy.com/).
+[Codepen](https://codepen.io/)
 ### Media
 - The images used in the website were obtained from [Unsplash](https://unsplash.com/).
 - The site logo was created using [favicon.io](https://favicon.io/).
