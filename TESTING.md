@@ -288,8 +288,24 @@ These are the results of the validation:
 - View Detail Destination 
 ![View Detail Destination page valdation](core/docs/images/html_css_validation/view_details_destination_html.png)
 
+- Create Destination 
+![Create Destination page valdation](core/docs/images/html_css_validation/destination_create_html.png)
+
+- Destination Detail
+![Destination Detail page valdation](core/docs/images/html_css_validation/destination_detail_html.png)
+
+- Favourite Destinations
+![Favorite Destinations page valdation](core/docs/images/html_css_validation/my_favours_html.png)
+
+- Destination Update
+![Destination Detail page valdation](core/docs/images/html_css_validation/destination_update_html.png)
+
+
 - Profile View Validation
-![Profile View page valdation](core/docs/images/html_css_validation/profile_view_html_IOError.png)
+![Profile View page valdation](core/docs/images/html_css_validation/profile_view_html.png)
+
+- Profile Update Validation
+![Profile Update page valdation](core/docs/images/html_css_validation/profile_update_view_html.png)
 
 
 
